@@ -1,0 +1,19 @@
+name: ic-seed-app-sim
+memory: 64M
+stack: cflinuxfs2
+# buildpack: staticfile_buildpack
+buildpack: predix_openresty_buildpack
+path: dist
+services:
+    - ie-predix-uaa
+    - event-service-redis
+env:
+    UAA_CLIENT_CREDENTIALS: "aWVzX2RldjpQQDU1dzByZA=="
+    RESOURCE_URL: https://ie-traffic.run.aws-usw02-pr.ice.predix.io
+    UAA_URI: https://2d8ccc15-2d57-4535-8448-ac9c1be562be.predix-uaa.run.aws-usw02-pr.ice.predix.io
+    UAA_CLIENT_ID: ies_dev
+    ASSET_ZONE_ID: ies-dev
+# env:
+#       CLIENT_AUTH_KEY: "aWVzX2RldjpQQDU1dzByZA=="
+#       RESOURCE_URL: https://ie-traffic-dev.run.aws-usw02-pr.ice.predix.io
+#       TOKEN_URL: https://a816af26-4abd-4495-94c0-cf7e402a51fe.predix-uaa.run.aws-usw02-pr.ice.predix.io

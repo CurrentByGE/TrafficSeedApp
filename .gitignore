@@ -1,0 +1,7 @@
+node_modules
+dist
+bower_components
+.tmp
+app/nginx/.DS_Store
+app/elements/.DS_Store
+.idea

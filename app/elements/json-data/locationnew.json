@@ -1,0 +1,225 @@
+{
+  "_embedded": {
+    "assets": [
+      {
+        "coordinates": {
+          "P1": "32.711653,-117.157314"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000018"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000018/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000018/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000018/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1040-75",
+        "event-type": "PKIN;TFEVT;PKOUT",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.712668,-117.157546"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000019"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000019/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000019/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000019/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1039-72",
+        "event-type": "TFEVT;PKOUT;PKIN",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.711664,-117.156404"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000020"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000020/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000020/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000020/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1047-88",
+        "event-type": "PKIN;PKOUT;TFEVT",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.712514,-117.158185"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000021"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000021/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000021/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000021/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1054-105",
+        "event-type": "PKIN;PKOUT;TFEVT",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.712513,-117.157283"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000023"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000023/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000023/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000023/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1041-79",
+        "event-type": "PKOUT;PKIN;TFEVT",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.712471,-117.158423"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000024"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000024/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000024/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000024/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1046-89",
+        "event-type": "PKIN;TFEVT;PKOUT",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.711628,-117.156618"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000025"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000025/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000025/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000025/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1042-76",
+        "event-type": "PKOUT;TFEVT;PKIN",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      },
+      {
+        "coordinates": {
+          "P1": "32.711421,-117.157264"
+        },
+        "_links": {
+          "self": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000026"
+          },
+          "search-media": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000026/media{?media-types,start-ts,end-ts,page,size}",
+            "templated": true
+          },
+          "search-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000026/events{?event-types,start-ts,end-ts,size}",
+            "templated": true
+          },
+          "live-events": {
+            "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000026/live-events{?event-types}",
+            "templated": true
+          }
+        },
+        "device-id": "HYP1037-77",
+        "event-type": "PKOUT;PKIN;TFEVT",
+        "media-type": "IMAGE",
+        "device-type": "DATASIM"
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/search?q=event-type%3ATFEVT&bbox=32.715675%3A-117.161230%2C32.708498%3A-117.151681&size=300"
+    }
+  },
+  "page": {
+    "size": 300,
+    "totalElements": 8,
+    "totalPages": 1,
+    "number": 0
+  }
+}

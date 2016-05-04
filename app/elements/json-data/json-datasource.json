@@ -1,0 +1,11 @@
+{
+  "_links": {
+    "self": {
+      "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/data-sources"
+    },
+    "search": {
+      "href": "http://ies-dev.run.aws-usw02-pr.ice.predix.io/data-sources/search{?q,bbox,page,size}",
+      "templated": true
+    }
+  }
+}

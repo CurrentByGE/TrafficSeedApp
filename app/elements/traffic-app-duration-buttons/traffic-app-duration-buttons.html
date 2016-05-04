@@ -1,0 +1,55 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+
+<dom-module id="traffic-app-duration-buttons">
+  <template>
+    <style>
+    paper-tab {
+      flex: 0 0 15%
+    }
+    paper-tabs{
+      float: right;
+    }
+    </style>
+    <paper-material elevation="0">TRAFFIC</paper-material>
+    <paper-tabs id="plain-tabs" selected="0" no-bar>
+          <paper-tab>1 Day</paper-tab>
+          <paper-tab>1 Week</paper-tab>
+          <paper-tab>1 Month</paper-tab>
+          <paper-tab>1 Year</paper-tab>
+    </paper-tabs>
+  </template>
+  <script>
+    Polymer({
+      is: 'traffic-app-duration-buttons',
+      properties: {
+        durations: {
+          notify: true,
+          type: Array,
+          value: function(){
+               return [
+                   {
+                       displayVal: '1 Day',
+                       val: '1Day'
+                   },
+                   {
+                       displayVal: '1 Week',
+                       val: '1Week'
+                   },
+                   {
+                       displayVal: '1 Month',
+                       val: '1Month'
+                   },
+                   {
+                       displayVal: '1 Year',
+                       val: '1Year'
+                   }
+              ];
+           }
+        }
+      }
+    });
+  </script>
+</dom-module>

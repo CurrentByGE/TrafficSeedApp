@@ -1,0 +1,864 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-card/px-card.html">
+<link rel="import" href="../../bower_components/px-spinner/px-spinner.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../../bower_components/px-simple-line-chart/px-simple-line-chart.html">
+<link rel="import" href="../traffic-app-map-section/traffic-app-map-section.html">
+<link rel="import" href="../current-date-range-buttons/current-date-range-buttons.html">
+<link rel="import" href="../styles/shared-styles.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<script src="../../bower_components/moment/min/moment.min.js"></script>
+<style>
+  #blockUIWrapper {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 99;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  #Wrapper {
+    margin-top: 25%;
+  }
+
+  .leaflet-bottom.leaflet-right {
+    z-index: 80 !important
+  }
+</style>
+<dom-module id="traffic-app">
+  <template>
+    <style is="custom-style" include="shared-styles"></style>
+    <iron-ajax auto id="idInitCall" url="[[baseUrl]]" handle-as="json" on-response="_handleInitResponse"></iron-ajax>
+
+    <iron-ajax auto url="[[dataSourceUrl]]" handle-as="json" on-response="_handleDataSourceResponse"></iron-ajax>
+
+    <iron-ajax auto id="idSearchApiCall"  url="[[searchUrl]]" timeout="[[timeoutMilliseconds]]" on-error="_handleApiCallError" handle-as="json" params=[[_searchApiParams]] on-response="_handleSearchEventResponse"></iron-ajax>
+
+    <iron-ajax auto id="idTrafficDataApiCall" url="[[trafficDataApiUrl]]" handle-as="json" params=[[_params]] timeout="[[timeoutMilliseconds]]" on-error="_handleApiCallError" on-request="_handleTrafficDataRequest" on-response="_handleTrafficDataResponse"></iron-ajax>
+
+    <iron-ajax id="idRefreshLastVehicleData" url="[[refreshLastVehicleDataApiUrl]]" handle-as="json" params=[[_refreshLastVehicleDataParams]] on-response="_handleRefreshLastVehicleDataResponse"></iron-ajax>
+
+    <px-card header-text="traffic" style="position:relative;">
+      <div id="blockUIWrapper">
+        <px-spinner id="pxSpinner"></px-spinner>
+      </div>
+      <div id="date-range">
+        <current-date-range-buttons current-date-range="{{currentDateRange}}" start-time="{{startTime}}" end-time="{{endTime}}" range={{range}} past-string="{{pastString}}"></current-date-range-buttons>
+      </div>
+      <div id="traffic-seed-map-and-location">
+        <div id="current-seed-map">
+          <traffic-app-map-section selected-latitude="{{selectedContext.defaultLatitude}}" selected-longitude="{{selectedContext.defaultLongitude}}" map-locations="{{mapLocations}}"></traffic-app-map-section>
+        </div>
+        <div id="current-seed-location">
+          <div id="current-seed-location-address">
+            <span id="map-place-icon">
+              <iron-icon class="maps-place" icon="maps:place"></iron-icon>
+            </span>
+            [[selectedAddress]]
+          </div>
+          <div id="current-seed-location-latitude">
+            <span class="sub-text-color-gray7">Latitude</span>
+            <span style="float:right;">[[selectedLatitude]]</span>
+          </div>
+          <div id="current-seed-location-longitude">
+            <span class="sub-text-color-gray7">Longitude</span>
+            <span style="float:right;">[[selectedLongitude]]</span>
+          </div>
+        </div>
+      </div>
+      <div id="map-chart-separator" class="sub-text-font-size-zeta sub-text-color-gray6">Select a node to view traffic data</div>
+      <div id="current-seed-chart-data">
+        <div id="current-seed-chart-speed">
+          <div><b>Vehicle Speed</b></div>
+          <div id="speed-average" class="align-contents-horizontal">
+            <div class="text-font-size-delta" style="margin-right:5px;">[[chart.speed.totalAvgSpeed]]</div>
+            <div class="align-contents-vertical">
+              <span class="sub-text-font-size-zeta" style="margin-top:5px;">[[chart.speed.unit]]</span>
+              <span class="sub-text-font-size-zeta sub-text-color-gray6" style="margin-top:-5px;">AVERAGE</span>
+            </div>
+          </div>
+          <px-simple-line-chart columns="[[chart.speed.data.length]]" rows="8" height="150" width="auto" min="[[chart.speed.minSpeed]]" max="[[chart.speed.maxSpeed]]" line-data="[[chart.speed.data]]">
+          </px-simple-line-chart>
+          <div class="sub-text-font-size-zeta sub-text-color-gray6">Past [[chart.pastString]]</div>
+        </div>
+        <div id="current-seed-chart-vehicle-count">
+          <div><b>Vehicle Count</b></div>
+          <div id="speed-average" class="align-contents-horizontal">
+            <div class="text-font-size-delta" style="margin-right:5px;">[[chart.vehicleCount.totalVehicles]]</div>
+            <div class="align-contents-vertical">
+              <span class="sub-text-font-size-zeta" style="margin-top:5px;">VEHICLES</span>
+            </div>
+          </div>
+          <px-simple-line-chart columns="[[chart.vehicleCount.data.length]]" rows="8" height="150" width="auto" min="[[chart.vehicleCount.minVehicles]]" max="[[chart.vehicleCount.maxVehicles]]" line-data="[[chart.vehicleCount.data]]">
+          </px-simple-line-chart>
+          <div class="sub-text-font-size-zeta sub-text-color-gray6">Past [[chart.pastString]]</div>
+        </div>
+        <div id="current-seed-chart-real-time">
+          <div><b>Last Vehicle</b></div>
+          <div class="">
+            <div class="border-bottom padding-10">
+              <span class="sub-text-color-gray7">Speed</span>
+              <span style="float:right;">[[chart.recent.speed]]</span>
+            </div>
+            <div class="border-bottom padding-10">
+              <span class="sub-text-color-gray7">Lane</span>
+              <span style="float:right;">[[chart.recent.location]]</span>
+            </div>
+            <div class="padding-10">
+              <span class="sub-text-color-gray7">Direction</span>
+              <span style="float:right;">[[chart.recent.direction]]</span>
+            </div>
+          </div>
+          <div style="height:72px"></div>
+          <div>
+            <span class="sub-text-font-size-zeta sub-text-color-gray6">Seen [[chart.recent.timeAgo]]</span>
+          </div>
+        </div>
+      </div>
+    </px-card>
+  </template>
+  <script>
+    (function() {
+      /*global moment*/
+      Polymer({
+        is: 'traffic-app',
+        ready: function() {
+          this.gettoken = '/token/';
+          this.baseUrl = '/services/';
+          this.local = false;
+        },
+        properties: {
+          pageSize: {
+            type: Number,
+            value: 1000
+          },
+          timeoutMilliseconds: {
+            type: Number,
+            value: 10000
+          },
+          selectedContext: {
+            type: Object,
+            notify: true
+          },
+          mapLocations: {
+            type: Array,
+            notify: true,
+            value: null
+          },
+          chart: {
+            type: Object,
+            value: null,
+            notify: true
+          },
+          currentDateRange: {
+            type: String,
+            value: '12 Hours'
+          },
+          startTime: {
+            type: Number
+          },
+          endTime: {
+            type: Number
+          },
+          range: {
+            type: Array
+          },
+          pastString: {
+            type: String
+          },
+          selectedLongitude: {
+            type: String,
+            value: null,
+            notify: true
+          },
+          selectedLatitude: {
+            type: String,
+            value: null,
+            notify: true
+          },
+          selectedAddress: {
+            type: String,
+            value: null,
+            notify: true
+          },
+          selectedLocation: {
+            type: Object,
+            value: null
+          },
+          dataSourceUrl: {
+            type: String
+          },
+          searchUrl: {
+            type: String
+          },
+          trafficDataApiUrl: {
+            type: String
+          },
+          refreshLastVehicleDataApiUrl: {
+            type: String
+          },
+          vehicleAutoRefreshHandler: {
+            type: Object,
+            value: null
+          },
+          lastVehicleStartTime: {
+            type: Number
+          },
+          lastVehicleEndTime: {
+            type: Number
+          },
+          _searchApiParams: {
+            type: Object,
+            computed: '_onSearchApiParamsChange(selectedContext.bbox, pageSize)'
+          },
+          _params: {
+            type: Object,
+            computed: '_onParamsChange(startTime, endTime, pageSize)'
+          },
+          _refreshLastVehicleDataParams: {
+            type: Object,
+            computed: '_onRefreshLastVehicleDataParamsChange(lastVehicleStartTime, lastVehicleEndTime, pageSize)'
+          }
+        },
+        /**
+         * This method will be used to hide the spinner and its wrapper div on UI.
+         */
+        _hideWrapper: function() {
+          var wrapperObj = document.getElementById('blockUIWrapper');
+          wrapperObj.hidden = true;
+          this.$.pxSpinner.hide();
+        },
+        /**
+         * This method will be used to show the spinner and its wrapper div on UI.
+         */
+        _showWrapper: function() {
+          var wrapperObj = document.getElementById('blockUIWrapper');
+          wrapperObj.hidden = false;
+          this.$.pxSpinner.show();
+        },
+        /**
+         * This method is called from init url ajax response. This method is responsible for setting the data source url in
+         * corresponding property so that the data source ajax call gets fired automatically.
+         *
+         */
+        _handleInitResponse: function(data) {
+          var initResponse = data.detail.response;
+          if (initResponse && initResponse._links && initResponse._links.assets) {
+            this.dataSourceUrl = this.baseUrl + this.getRelativeURL(initResponse._links.assets.href);
+          }
+        },
+        /**
+         * This method is called from data source ajax response. This method is responsible for setting the search events url in
+         * corresponding property so that the search event ajax call gets fired automatically.
+         */
+        _handleDataSourceResponse: function(data) {
+          var dataSourceResponse = data.detail.response;
+          if (dataSourceResponse && dataSourceResponse._links && dataSourceResponse._links.search && dataSourceResponse._links.search.href) {
+            var searchUrlSplittedAry = this._getUrlAndParametersArrayUtil(dataSourceResponse._links.search.href);
+            this.searchUrl = this.baseUrl + this.getRelativeURL(searchUrlSplittedAry[0]);
+          }
+        },
+        /**
+         * This method is called from on-error Event of search and traffic api calls.
+         */
+        _handleApiCallError: function(data) {
+          if(data.detail.error.type === 'timeout'){
+            document.getElementById(data.currentTarget.id).generateRequest();
+          }
+        },
+        /**
+         * This method is called from search ajax response. This method is responsible for setting the data to be shown on map.
+         * Also this method will set the traffic data api url in corresponding property so that the traffic data ajax calls gets
+         * fired automatically. Also it will set the first element returned from response as default marker of map. Rest all markers
+         * will be set in mapLocations array.
+         */
+        _handleSearchEventResponse: function(data) {
+          var locationsResponse = data.detail.response;
+          this.mapLocations = [];
+          var allLocations = locationsResponse._embedded.assets;
+
+          // iterate on all locations and update mapLocations array to be used on map.
+          if (allLocations) {
+            allLocations.forEach(function(loc) {
+              if (loc['event-type'].indexOf('TFEVT') !== -1) {
+                if (loc.coordinates && loc.coordinates.P1 && loc.coordinates.P1.indexOf(',') !== -1) {
+                  var longlatAry = loc.coordinates.P1.split(',');
+                  loc.latitude = longlatAry[0];
+                  loc.longitude = longlatAry[1];
+                  if (this.mapLocations.length === 0) {
+                    loc.selected = true;
+                    this._updateSelectedDataForLocationChange(loc);
+                  } else {
+                    loc.selected = false;
+                  }
+                }
+                this.push('mapLocations', loc);
+              }
+            }, this);
+          }
+
+          // below resize event is fired since polymer leaflet map shows grey area if we do not do a resize.
+          setTimeout(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 1);
+
+          // The only way in polymer to access map object is to get it through document get element by id.
+          var mymap = document.getElementById('current-seed-map');
+
+          // Below code is to add click event listner on map so that when user clicks on any of the marker we can update the corresponding
+          // longitude, latitude, speed/vehicle count chart and last vehicle data.
+          mymap.addEventListener('click', this._onMapClick.bind(this));
+        },
+        /**
+         * Below method will be called when user clicks on map. If the map marker is clicked, then new marker will be active and rest all markers
+         * will be deactice. Also, for the new marker location, we will update the traffic data api url, so that, an auto traffic data ajax call goes
+         * for currently selected date range.
+         */
+        _onMapClick: function(e) {
+          // below condition if to check if user clicked on the one of the marker which has itemObj associated to it.
+          if (e && e.target && e.target.itemobj) {
+            // below code will iterate over all map markers and will set the currently clicked marker selected as true and rest markers as false.
+            if (this.mapLocations) {
+              this.mapLocations.forEach(function(loc, locIdx) {
+                if (loc.longitude === e.target.itemobj.longitude && loc.latitude === e.target.itemobj.latitude) {
+                  this.set('mapLocations.' + locIdx + '.selected', true);
+                  this._updateSelectedDataForLocationChange(loc);
+                } else {
+                  this.set('mapLocations.' + locIdx + '.selected', false);
+                }
+              }, this);
+            }
+          }
+          return false;
+        },
+        /**
+         * Below method is used to update the selectedLongitude, selectedLatitude, selectedLocation and trafficDataApiUrl based on the current location
+         * selected by user. Once the trafficDataApiUrl url is updated, it will trigger an automatic ajax call to get the traffic data for new location
+         * selected.
+         */
+        _updateSelectedDataForLocationChange: function(loc) {
+          this.selectedLongitude = loc.longitude;
+          this.selectedLatitude = loc.latitude;
+          this.selectedAddress = loc['device-id'];
+          this.selectedLocation = loc;
+          this.trafficDataApiUrl = this.baseUrl + this.getRelativeURL(this._getTrafficDataApiUrlUtil(loc._links['search-events'].href));
+        },
+        /**
+         * This method will be called before getting the traffic data from get trafficDataApiUrl ajax call.
+         * Here we will show the spinner and block the UI.
+         */
+        _handleTrafficDataRequest: function() {
+          this._showWrapper();
+        },
+        /**
+         * Below method will be called after traffic data ajax response call. This method will do the following
+         * 1) Create the data for speed. It will calculate the average speed and prepare chart data.
+         * 2) Create the data for vehicle count. It will calculate the total vehicle count and prepare its chart data.
+         * 3) It will also calculate the recently captured Vehicle's Speed, Lane and Direction, Seen <time> ago values
+         *   for that selected time range.
+         */
+        _handleTrafficDataResponse: function(data) {
+          var trafficResponse = data.detail.response;
+
+          // There is a possibility that none of the vehicles have passed for the selected time frame.
+          // At that time, the trafficResponse will have no contents. In that case, UI will have to show
+          // the charts for the selected time frame (for eg: past 7 days for '1 Week', past 1 month for '1 Month')
+          // with no data in chart.
+          var trafficEventsArr = [];
+          if (trafficResponse && trafficResponse._embedded && trafficResponse._embedded.events) {
+            trafficEventsArr = trafficResponse._embedded.events;
+          }
+
+          // Below method call will create an eventObj which will have xAxisArr, totals obj and recentData details.
+          var eventsObj = this._getEventsObject(trafficEventsArr);
+
+          // Below call will produce the data which will be accepted by chart - chartObj.speed will have speed section
+          // related data, chartObj.vehicle will have vehcile section related data and chartObj.recent will have data
+          // for Last vehicle section.
+          var chartObj = this._getChartObj(eventsObj);
+          this.chart = chartObj;
+
+          // Below code is to check if we have already 10 seconds vehicleAutoRefreshHandler running. If found, we will first clear the interval and
+          // then start a new interval ajax call to get the recent vehicle data every 10 seconds.
+          if (this.vehicleAutoRefreshHandler) {
+            clearInterval(this.vehicleAutoRefreshHandler);
+          }
+
+          // start a 10 second interval to call the ajax for getting refresh last vehicle data.
+          this.vehicleAutoRefreshHandler = setInterval(this._refreshLastVehicleData.bind(this), 10000);
+
+          // Control comes here when all ajax calls received the response and UI processing is done, So at this point we will stop the spinner.
+          this._hideWrapper();
+        },
+
+        /**
+         *
+         * Below method is responsible for preparing the chart data and  average values for speed and vehicle count,
+         * it will also have the lasr vehicle data for that givent date range.
+         * For eg: it will contain the data as follows:
+         * 1) chartObj.speed, chartObj.vehicle - it will have data for chart (x,y axis array). It will also have min and max Y axis
+         *    values and average value to be shown on top.
+         * 2) chartObj.recent: it will have data to be shown on Last vehicle section.
+         *    this object will be used to show the data in screen.
+         */
+        _getChartObj: function(eventsObj) {
+          var chart = {
+            speed: {},
+            vehicleCount: {},
+            recent: {
+              location: '',
+              speed: '',
+              direction: '',
+              timeAgo: ''
+            },
+            pastString: ''
+          };
+          var dataObj = {
+            speedData: [],
+            vehicleCountData: [],
+            avgSpeedArr: [],
+            vehicleCountArr: []
+          };
+
+          // Below code will iterate over the individual event objects and will calcuate the average speed and total vehicle count
+          // for each x axis value and create a 2D array to be passed to chart as input.
+          if (eventsObj.xAxisArr) {
+            eventsObj.xAxisArr.forEach(function(xAxisObj, xIdx) {
+              var avgSpeed = 0;
+              var totalVehicleCount = 0;
+              if (xAxisObj) {
+                if (xAxisObj.speed && xAxisObj.speed.totalSpeed && xAxisObj.speed.totalSpeed > 0) {
+                  var totalCount = 1;
+                  if (xAxisObj.speed.totalCount > 0) {
+                    totalCount = xAxisObj.speed.totalCount;
+                  }
+                  avgSpeed = Math.floor(xAxisObj.speed.totalSpeed / totalCount);
+                }
+
+                if (xAxisObj.vehicleCount && xAxisObj.vehicleCount.totalVehicle) {
+                  totalVehicleCount = xAxisObj.vehicleCount.totalVehicle;
+                }
+
+                dataObj.speedData.push([xIdx, avgSpeed]);
+                dataObj.avgSpeedArr.push(avgSpeed);
+
+                dataObj.vehicleCountData.push([xIdx, totalVehicleCount]);
+                dataObj.vehicleCountArr.push(totalVehicleCount);
+              }
+            });
+          }
+
+          // Once the chart data (average speed and total vehicle) values are determined,
+          // take out the minVehicles and maxVehicles, minAvgSpeed and maxAvgSpeed which
+          // will be shown on y axis as label on both charts.
+          var minSpeed = Math.min.apply(null, dataObj.avgSpeedArr);
+          var maxSpeed = Math.max.apply(null, dataObj.avgSpeedArr);
+          var minVehicles = Math.min.apply(null, dataObj.vehicleCountArr);
+          var maxVehicles = Math.max.apply(null, dataObj.vehicleCountArr);
+
+          // Below code will calculate total average speed which will be shown in UI above speed chart.
+          var totalAvgSpeed = 0;
+          if (eventsObj.totals && eventsObj.totals.speed.totalSpeed && eventsObj.totals.speed.totalCount) {
+            if (eventsObj.totals.speed.totalSpeed > 0 && eventsObj.totals.speed.totalCount > 0) {
+              totalAvgSpeed = Math.floor(eventsObj.totals.speed.totalSpeed / eventsObj.totals.speed.totalCount);
+            }
+          }
+
+          // Below code will calculate total vehicles which will be shown in UI above vehicle count chart.
+          var totalVehicles = 0;
+          if (eventsObj.totals && eventsObj.totals.vehicleCount.totalVehicle && eventsObj.totals.vehicleCount.totalVehicle > 0) {
+            totalVehicles = eventsObj.totals.vehicleCount.totalVehicle;
+          }
+
+          // Below code will update the chart object with speed and vehicle count data calculated above.
+          chart.speed.totalAvgSpeed = totalAvgSpeed;
+          chart.speed.minSpeed = minSpeed;
+          chart.speed.maxSpeed = maxSpeed;
+          chart.speed.data = dataObj.speedData;
+          chart.speed.unit = this.selectedContext.speedUnitTypeForUI;
+
+          chart.vehicleCount.totalVehicles = totalVehicles;
+          chart.vehicleCount.minVehicles = minVehicles;
+          chart.vehicleCount.maxVehicles = maxVehicles;
+          chart.vehicleCount.data = dataObj.vehicleCountData;
+          chart.vehicleCount.unit = 'AVERAGE';
+
+          // Below method call will update the recent data (last vehicle data) on chart object.
+          this._updateRecentDataInChartObj(eventsObj, chart);
+
+          // Update the past string to be shown below the chart data.
+          chart.pastString = this.pastString;
+          return chart;
+        },
+
+        /**
+         * Below method call will update the last vehicle data in chart object.
+         * It will find update the location, speed, direction and timeAgo values
+         * which will be shown in UI.
+         */
+        _updateRecentDataInChartObj: function(eventsObj, chart) {
+
+          // Below variable will be used to determine if any 10 seconds ajax call response updated the last vehcile data.
+          var isRecentDataUpdate = false;
+
+          // below section updates the location, speed, direction and time ago for the recently passed vehicle data.
+          if (eventsObj.recentData && eventsObj.recentData.event) {
+            if (eventsObj.recentData.event['location-uid']) {
+              chart.recent.location = eventsObj.recentData.event['location-uid'];
+              isRecentDataUpdate = true;
+            }
+            if (eventsObj.recentData.event.measures) {
+              for (var msrsIdx = 0; msrsIdx < eventsObj.recentData.event.measures.length; msrsIdx++) {
+                var measure = eventsObj.recentData.event.measures[msrsIdx];
+                switch (measure.tag) {
+                  case 'speed':
+                    chart.recent.speed = this._convertSpeedValueInDesiredUnit(measure.value, measure.unit) + ' ' + this.selectedContext.speedUnitTypeForUI;
+                    isRecentDataUpdate = true;
+                    break;
+                  case 'direction':
+                    chart.recent.direction = this._getDirectionByDegree(measure.value);
+                    isRecentDataUpdate = true;
+                    break;
+                }
+              }
+            }
+            if (eventsObj.recentData.event.timestamp) {
+              chart.recent.timeAgo = moment(eventsObj.recentData.event.timestamp).fromNow();
+              isRecentDataUpdate = true;
+            }
+          }
+          chart.isRecentDataUpdate = isRecentDataUpdate;
+          return chart;
+        },
+
+        /**
+         *   Below method will create the event object which will have :
+         *    1) eventsObj.recentData - from the array of all event objects, recentData object will contain the
+         *    eventObject for the recent timestamp and will be used for showing Recent Vehicle Information.
+         *    2) eventObj.totals - this will contain the total speed and total count, total vehicles and total count
+         *    and will be used to show the average speed and average vehicle information.
+         *    3) eventObj.xAxisArr - this array will contain the total number of xAxisElements with speed totals and
+         *    vehicle totals for that given timeframe. For eg: xAxisArr will have size = 7 if 1 week is selected in
+         *    date range. Every element will have the total speed and vehicle count for that time range. Element at
+         *    0th location will have 1st day's total speed and vehicle count.
+         */
+        _getEventsObject: function(eventsArr) {
+          var totals = this._getDefaultTotalsObject();
+          var xAxisArr = this._getDefaultXAxisArray();
+          var recentData = {};
+          var eventsArrLen = eventsArr.length;
+          var eventsObj = {};
+          var eventsArrIdx = 0;
+          for (eventsArrIdx = 0; eventsArrIdx < eventsArrLen; eventsArrIdx++) {
+            var event = eventsArr[eventsArrIdx];
+            var rangeIdx = 0;
+            var rangeLen = this.range.length;
+            if (event.timestamp) {
+              if (recentData.hasOwnProperty('timestamp')) {
+                if (recentData.timestamp < event.timestamp) {
+                  recentData.timestamp = event.timestamp;
+                  recentData.event = event;
+                }
+              } else {
+                recentData.timestamp = event.timestamp;
+                recentData.event = event;
+              }
+              for (rangeIdx = 0; rangeIdx < rangeLen - 1; rangeIdx++) {
+                if (event.timestamp >= this.range[rangeIdx] && event.timestamp < this.range[rangeIdx + 1]) {
+                  if (event.measures) {
+                    for (var msrsIdx = 0; msrsIdx < event.measures.length; msrsIdx++) {
+                      var measure = event.measures[msrsIdx];
+                      switch (measure.tag) {
+                        case 'speed':
+                          xAxisArr[rangeIdx].speed.totalSpeed += this._convertSpeedValueInDesiredUnit(measure.value, measure.unit);
+                          xAxisArr[rangeIdx].speed.totalCount += 1;
+
+                          totals.speed.totalSpeed += this._convertSpeedValueInDesiredUnit(measure.value, measure.unit);
+                          totals.speed.totalCount += 1;
+
+                          eventsObj.speedUnit = measure.unit;
+                          break;
+                        case 'vehicleCount':
+                          xAxisArr[rangeIdx].vehicleCount.totalVehicle += measure.value;
+                          xAxisArr[rangeIdx].vehicleCount.totalCount += 1;
+
+                          totals.vehicleCount.totalVehicle += measure.value;
+                          totals.vehicleCount.totalCount += 1;
+                          break;
+                      }
+                    }
+                  }
+                  break;
+                }
+              }
+            }
+          }
+          eventsObj.xAxisArr = xAxisArr;
+          eventsObj.totals = totals;
+          eventsObj.recentData = recentData;
+          return eventsObj;
+        },
+
+        /**
+         *   Below method will be called from refresh last vehicle ajax response.
+         *   Here, if the response data is present, then chart object's recent data
+         *   section will be updated and corresponding UI section will show updated data.
+         */
+        _handleRefreshLastVehicleDataResponse: function(data) {
+          var lastVehicleData = data.detail.response;
+          if (lastVehicleData && lastVehicleData._embedded && lastVehicleData._embedded.events) {
+            var eventsObj = this._getEventsObject(lastVehicleData._embedded.events);
+            var chartObj = {
+              recent: {
+                location: '',
+                speed: '',
+                direction: '',
+                timeAgo: ''
+              }
+            };
+            this._updateRecentDataInChartObj(eventsObj, chartObj);
+            if (chartObj.isRecentDataUpdate) {
+              if (chartObj && chartObj.recent) {
+                if (!this.chart) {
+                  this.chart = {};
+                }
+                this.chart.recent = chartObj.recent;
+                this.set('chart.recent', chartObj.recent);
+              }
+            }
+          }
+        },
+
+        /**
+         * Below method returns a default totals object.
+         */
+        _getDefaultTotalsObject: function() {
+          var totals = {
+            speed: {
+              totalSpeed: 0,
+              totalCount: 0
+            },
+            vehicleCount: {
+              totalVehicle: 0,
+              totalCount: 0
+            }
+          };
+          return totals;
+        },
+
+        /**
+         * Below method returns a X axis array object. This method will make sure
+         * to have the xAxis Array length based on the date range selected. For eg:
+         * if date range is 1 year then array length will be 12.
+         */
+        _getDefaultXAxisArray: function() {
+          var xAxisArr = [];
+
+          var rangeIdx = 0;
+          var rangeLen = this.range.length;
+
+          for (rangeIdx = 0; rangeIdx < rangeLen - 1; rangeIdx++) {
+            var xAxisObj = this._getDefaultTotalsObject();
+
+            xAxisArr[rangeIdx] = xAxisObj;
+          }
+          return xAxisArr;
+        },
+
+        /**
+         * Below method returns a X axis array object. This method will make sure
+         * to have the xAxis Array length based on the date range selected. For eg:
+         * if date range is 1 year then array length will be 12.
+         */
+        _refreshLastVehicleData: function() {
+          var endTs = moment().valueOf();
+          var startTs = moment(endTs).subtract(10, 'seconds').valueOf();
+          var selectedLocationBaseUrl = this.selectedLocation._links['search-events'].href;
+          this.refreshLastVehicleDataApiUrl = this.baseUrl + this.getRelativeURL(this._getTrafficDataApiUrlUtil(selectedLocationBaseUrl));
+          this.lastVehicleStartTime = startTs;
+          this.lastVehicleEndTime = endTs;
+          document.getElementById('idRefreshLastVehicleData').generateRequest();
+        },
+        /**
+         * Below method will be called whenever any of the parameter like bbox, size.
+         */
+        _onSearchApiParamsChange: function(bbox, size) {
+          return {
+            'q': 'event-type:TFEVT',
+            'bbox': bbox,
+            'size': size
+          };
+        },
+        /**
+         * Below method will be called whenever any of the parameter like start time, end time changes.
+         */
+        _onParamsChange: function(startTm, endTm, size) {
+          return {
+            'event-types': 'TFEVT-SLOW',
+            'start-ts': startTm,
+            'end-ts': endTm,
+            'size': size
+          };
+        },
+        /**
+         * Below method will be called whenever any of the parameter like last vehcile start time, last vehcile end time changes.
+         */
+        _onRefreshLastVehicleDataParamsChange: function(lastVehicleStartTime, lastVehicleEndTime, size) {
+          return {
+            'event-types': 'TFEVT',
+            'start-ts': lastVehicleStartTime,
+            'end-ts': lastVehicleEndTime,
+            'size': size
+          };
+        },
+        /**
+         * Below method is called to get the relative url from base url.
+         */
+        getRelativeURL: function(baseURL) {
+          var relativeURL = '';
+
+          if (baseURL) {
+            var itemsToBeSpliced = 1;
+            if (baseURL.lastIndexOf('http', 0) === 0) {
+              itemsToBeSpliced = 3;
+            }
+            var baseUrlArr = baseURL.split('/');
+            baseUrlArr.splice(0, itemsToBeSpliced);
+            relativeURL = baseUrlArr.join('/');
+          }
+          return relativeURL;
+        },
+        /**
+         * Below method is called split the url received from response to base url and parameters array.
+         * This is required to remove the parameters section from the url we received from response.
+         */
+        _getUrlAndParametersArrayUtil: function(baseUrl) {
+          var urlAndParamAry = [];
+          if (baseUrl) {
+            if (baseUrl.indexOf('{?') !== -1) {
+              urlAndParamAry = baseUrl.split('{?');
+            } else {
+              urlAndParamAry[0] = baseUrl;
+            }
+          }
+          return urlAndParamAry;
+        },
+        /**
+         * Below method is utility for getting the base url from the complete url.
+         * This method first split the api response url into array of url and parameters.
+         * Next it returns the base url from the array.
+         */
+        _getTrafficDataApiUrlUtil: function(baseTrafficUrl) {
+          if (baseTrafficUrl) {
+            var baseTrafficUrlAry = this._getUrlAndParametersArrayUtil(baseTrafficUrl);
+            return baseTrafficUrlAry[0];
+          }
+        },
+        /**
+         * Below method is utility for getting the speed in desired unit based on the city selection.
+         * Based on City or User preference, UI will update the constant speedUnitTypeForUI either to
+         * MPH or KMPH and this method will use speedUnitTypeForUI to calculate the speed in selected unit.
+         */
+        _convertSpeedValueInDesiredUnit: function(speedValFromApi, speedUnitFromApi) {
+          var speedInDesiredUnit = '';
+          if (speedUnitFromApi) {
+            switch (speedUnitFromApi) {
+              case 'MPS':
+                switch (this.selectedContext.speedUnitTypeForUI) {
+                  case 'MPH':
+                    speedInDesiredUnit = speedValFromApi * 2.2369;
+                    break;
+                  case 'KMPH':
+                    speedInDesiredUnit = speedValFromApi * 3.6;
+                    break;
+                }
+                break;
+              case 'MPH':
+                switch (this.selectedContext.speedUnitTypeForUI) {
+                  case 'MPH':
+                    speedInDesiredUnit = speedValFromApi;
+                    break;
+                  case 'KMPH':
+                    speedInDesiredUnit = speedValFromApi * 1.609344;
+                    break;
+                }
+                break;
+              case 'KMPH':
+                switch (this.selectedContext.speedUnitTypeForUI) {
+                  case 'MPH':
+                    speedInDesiredUnit = speedValFromApi / 1.609344;
+                    break;
+                  case 'KMPH':
+                    speedInDesiredUnit = speedValFromApi;
+                    break;
+                }
+                break;
+            }
+          }
+          // Control goes in else when no speed unit came back from API (speed unit from API is null).
+          // In that case, we will set the same value we received from API if that value is not null or not undefined.
+          else {
+            if (speedUnitFromApi) {
+              speedInDesiredUnit = speedUnitFromApi;
+            }
+          }
+
+          // Below we will round the speed value before returning to be shown in UI. In case speedInDesiredUnit is empty,
+          // it will return 0. Ideally speedInDesiredUnit should not be empty at this point, unless the API returned no
+          // value in speed.
+          speedInDesiredUnit = Math.round(speedInDesiredUnit);
+          return speedInDesiredUnit;
+        },
+        /**
+         * Below method is utility for getting the direction based on the degree.
+         *  East = 337.5 – 22.5 deg
+         *  Northeast = 22.5-67.5 deg
+         *  North = 67.5-112.5 deg
+         *  Northwest = 112.5 – 157.5 deg
+         *  West = 157.5-202.5 deg
+         *  Southwest = 202.5-247.5 deg.
+         *  South = 247.5-292.5 deg
+         *  Southeast = 292.5-337.5 deg.
+         */
+        _getDirectionByDegree: function(degree) {
+          var returnDirection = '';
+          if (degree !== undefined && degree !== null) {
+            switch (true) {
+              case degree >= 337.5 || degree < 22.5:
+                returnDirection = 'East';
+                break;
+              case degree >= 22.5 && degree < 67.5:
+                returnDirection = 'Northeast';
+                break;
+              case degree >= 67.5 && degree < 112.5:
+                returnDirection = 'North';
+                break;
+              case degree >= 112.5 && degree < 157.5:
+                returnDirection = 'Northwest';
+                break;
+              case degree >= 157.5 && degree < 202.5:
+                returnDirection = 'West';
+                break;
+              case degree >= 202.5 && degree < 247.5:
+                returnDirection = 'Southwest';
+                break;
+              case degree >= 247.5 && degree < 292.5:
+                returnDirection = 'South';
+                break;
+              case degree >= 292.5 && degree < 337.5:
+                returnDirection = 'Southeast';
+                break;
+            }
+          }
+          return returnDirection;
+        }
+      });
+    })();
+  </script>
+</dom-module>

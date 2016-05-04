@@ -1,0 +1,36 @@
+{
+  "_embedded": {
+    "events": [
+      {
+        "properties": {
+          "PAYLOAD":
+            {"timestamp":1456854192110,"properties":null,"measures":
+                                      [{"tag":"vehicleCount","value":587,"unit":null},
+                                       {"tag":"speed","value":24.198278431605935,"unit":"MPH"}
+                                      ],"event-uid":"ffec15ec-4ece-4a5a-b230-395cd8f61c47","event-type":"TFEVT",
+                                      "device-uid":"*2XMY5Y8G","location-uid":"Lane2"}
+        },
+        "measures": [],
+        "event-uid": null,
+        "timestamp": 1456855017965,
+        "event-type": "TFEVT",
+        "device-uid": "*2XMY5Y8G",
+        "location-uid": null
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost:9000/data-sources/1000000033/events?event-types=TFEVT&start-ts=1456855017900&end-ts=1456855018000&size=20"
+    },
+    "next-page": {
+      "href": "http://localhost:9000/data-sources/1000000033/events?event-types=TFEVT&start-ts=0&end-ts=1456855018000&size=20"
+    }
+  },
+  "page": {
+    "size": 20,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
+}

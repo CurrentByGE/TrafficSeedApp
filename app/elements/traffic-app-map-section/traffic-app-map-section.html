@@ -1,0 +1,48 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/leaflet-map/leaflet-map.html">
+
+<dom-module id="traffic-app-map-section">
+  <template>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      leaflet-map {
+        height: 100%;
+      }
+    </style>
+    <!-- fit-to-markers -->
+    <leaflet-map id="trafficmap" latitude="{{selectedLatitude}}" longitude="{{selectedLongitude}}" zoom="17">
+      <template is="dom-repeat" items="{{mapLocations}}">
+        <leaflet-marker latitude="{{item.latitude}}" longitude="{{item.longitude}}" opacity="{{getOpacityBySelectedAttr(item.selected)}}" itemobj="{{item}}" title="Location"> </leaflet-marker>
+      </template>
+    </leaflet-map>
+  </template>
+  <script>
+    /*global L*/
+    Polymer({
+      is: 'traffic-app-map-section',
+      ready: function() {
+        L.Icon.Default.imagePath = '../../bower_components/leaflet/dist/images';
+      },
+      properties: {
+        selectedLongitude: {
+          type: String
+        },
+        selectedLatitude: {
+          type: String
+        }
+      },
+      getOpacityBySelectedAttr: function(selected) {
+        if (selected) {
+          return '1';
+        } else {
+          return '0.4';
+        }
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,176 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+
+<link rel="import" href="../../bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+
+<dom-module id="seed-app-nav">
+  <template>
+    <style is="custom-style">
+      :host {
+        @apply(--layout);
+        --iron-icon-height: 1.1732rem;
+        --paper-menu-background-color: var(--px-app-nav-background-color);
+        --paper-menu: {
+          color: var(--px-app-nav-link-text-color);
+          padding: 0;
+        };
+
+        --paper-menu-selected-item: {
+          background-color: var(--px-app-nav-link-selected-color);
+          font-weight: normal;
+        };
+        --paper-menu-focused-item: {
+          background-color: var(--px-app-nav-link-selected-color);
+        };
+
+        --ge-font-styles-lg: {
+          font-family: 'GE Inspira Sans', 'sans-serif';
+          font-size: 0.9375em;
+          padding: 0 16px 0 15px;
+        };
+        --ge-font-styles-sm: {
+          font-family: 'GE Inspira Sans', 'sans-serif';
+          font-size: 0.8375em;
+        };
+
+      }
+
+      .submenu-item {
+        --paper-item-icon-width: 1.85rem;
+        padding-left: 2rem;
+        --paper-icon-item: {
+          @apply(--ge-font-styles-sm);
+        };
+        --paper-item: {
+          @apply(--ge-font-styles-sm);
+        };
+      }
+
+      .menu-item {
+        --paper-item-icon-width: 2rem;
+        --paper-icon-item: {
+          @apply(--ge-font-styles-lg);
+        };
+        --paper-item: {
+          @apply(--ge-font-styles-lg);
+        };
+      }
+
+      .menu-item:not(.iron-selected):hover {
+        background-color: var(--px-app-nav-link-hover-color);
+      }
+
+      .submenu-item:not(.iron-selected):hover {
+        background-color: var(--px-app-nav-link-hover-color);
+      }
+
+      .sublist {
+        padding: 0;
+      }
+    </style>
+
+
+    <paper-menu style="width: 100%;" attr-for-selected="route" selected="{{selectedRoute}}">
+      <template is="dom-repeat" items="[[links]]" as="link">
+        <template is="dom-if" if="[[link.sublinks]]">
+          <paper-submenu route$="[[link.route]]">
+            <paper-icon-item class="menu-trigger menu-item" route$="[[link.route]]" href$="[[link.href]]" on-tap="_handleTap">
+              <iron-icon icon="[[link.icon]]" item-icon></iron-icon>
+              <span hidden$="[[collapsed]]">[[link.title]]</span>
+            </paper-icon-item>
+
+            <paper-menu class="menu-content sublist" attr-for-selected="route" selected="{{selectedSublinkRoute}}">
+              <template is="dom-repeat" items="[[link.sublinks]]" as="sublink">
+                <paper-icon-item route="[[sublink.route]]" class="submenu-item" on-tap="_handleTap" href$="[[sublink.href]]">
+                  <iron-icon icon="[[sublink.icon]]" item-icon></iron-icon>
+                  <span hidden$="[[collapsed]]">[[sublink.title]]</span>
+                </paper-icon-item>
+              </template>
+            </paper-menu>
+
+          </paper-submenu>
+        </template>
+
+        <template is="dom-if" if="[[!link.sublinks]]">
+          <paper-icon-item class="menu-item" route$="[[link.route]]" href$="[[link.href]]" on-tap="_handleTap">
+            <iron-icon icon="[[link.icon]]" item-icon></iron-icon>
+            <span hidden$="[[collapsed]]">[[link.title]]</span>
+          </paper-icon-item>
+        </template>
+
+      </template>
+    </paper-menu>
+
+    <content></content>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'seed-app-nav',
+      properties: {
+        links: {
+          type: Array,
+          value: []
+        },
+        selectedRoute: {
+          type: String,
+          observer: '_onSelectedRouteChanged'
+        },
+        selectedSublinkRoute: {
+          type: String,
+          observer: '_onSelectedSublinkRouteChanged'
+        },
+        collapsed: {
+          type: Boolean,
+          observer: '_onCollapsedChanged',
+          value: false
+        }
+      },
+
+      fireSelectedEvent: function(route) {
+        this.fire('route-selected', route);
+      },
+
+      _onSelectedRouteChanged: function() {
+        if (this.selectedRoute) {
+          this.fireSelectedEvent(this.selectedRoute);
+        }
+        this.selectedSublinkRoute = null;
+      },
+
+      _onSelectedSublinkRouteChanged: function() {
+        if (this.selectedSublinkRoute) {
+          this.fireSelectedEvent(this.selectedSublinkRoute);
+        }
+      },
+
+      _handleTap: function(e) {
+        var source = e.currentTarget;
+        var href = source.href;
+        if (href) {
+          page(href);
+        }
+      },
+
+      _onCollapsedChanged: function() {
+
+      }
+    });
+  </script>
+</dom-module>

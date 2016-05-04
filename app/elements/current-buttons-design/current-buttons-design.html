@@ -1,0 +1,157 @@
+<link rel="import" href="../current-colors-design/current-colors-design.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<style is="custom-style">
+  :root {
+    --current-btn-color: var(--px-black);
+    --current-btn-box-shadow-light: 0 1px 0 rgba(var(--px-black), .1);
+    --current-btn-box-shadow: 0 1px 0 rgba(var(--px-black), .15);
+    --current-btn-bg-color: var(--px-gray3);
+    --current-btn-bg-color-hovered: var(--px-gray5);
+    --current-btn-bg-color-pressed: var(--px-gray6);
+    --current-btn-border-color: var(--px-gray5);
+    --current-btn-border-color-hovered: var(--px-gray6);
+    --current-btn-border-color-pressed: var(--px-gray7);
+    --current-btn-primary-color: var(--px-white);
+    --current-btn-primary-bg-color: var(--px-primary-blue);
+    --current-btn-primary-bg-color-hovered: var(--px-primary-blue-hover);
+    --current-btn-primary-bg-color-pressed: var(--px-primary-blue-pressed);
+    --current-btn-primary-border-color: var(--px-primary-blue-pressed);
+    --current-btn-disabled-color: var(--px-gray4);
+    --current-btn-disabled-bg-color: var(--px-white);
+    --current-btn-disabled-border-color: var(--px-gray4);
+  }
+</style>
+
+<dom-module id="current-buttons-design">
+  <template>
+    <style>
+      /**
+       * Basic buttons
+       */
+      .btn {
+        display: inline-block;
+        overflow: visible;
+        height: 2em;
+        margin: 0;
+        border: 1px solid var(--current-btn-border-color);
+        border-radius: 3px;
+        padding: 0 1em;
+        box-shadow: var(--current-btn-box-shadow-light);
+        font: inherit;
+        line-height: calc(2em - 2px);
+        -webkit-font-smoothing: antialiased;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        text-transform: none;
+        white-space: nowrap;
+        background-color: var(--current-btn-bg-color);
+      }
+      .btn,
+      .btn:link,
+      .btn:visited,
+      .btn:hover,
+      .btn:active {
+        color: var(--current-btn-color);
+      }
+      .btn:hover {
+        border-color: var(--current-btn-border-color-hovered);
+        box-shadow: var(--current-btn-box-shadow);
+        background-color: var(--current-btn-bg-color-hovered);
+      }
+      .btn:active {
+        border-color: var(--current-btn-border-color-pressed);
+        box-shadow: none;
+        background-color: var(--current-btn-bg-color-pressed);
+        outline: none;
+      }
+      .btn:focus {
+        outline: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      /* TODO change me to a constant value through current-spacing-design */
+      .btn + .btn {
+        margin-left: 5px;
+      }
+      /**
+       * Primary Buttons
+       */
+      .btn-primary {
+        border-color: var(--current-btn-primary-border-color);
+        box-shadow: var(--current-btn-box-shadow);
+        background-color: var(--current-btn-primary-bg-color);
+      }
+      .btn-primary,
+      .btn-primary:link,
+      .btn-primary:visited,
+      .btn-primary:hover,
+      .btn-primary:active {
+        color: var(--current-btn-primary-color);
+      }
+      .btn-primary:hover {
+        border-color: transparent;
+        background-color: var(--current-btn-primary-bg-color-hovered);
+      }
+      .btn-primary:hover {
+        border-color: transparent;
+        background-color: var(--current-btn-primary-bg-color-pressed);
+      }
+      /**
+       * Disabled button
+       */
+      .btn[disabled],
+      .btn[disabled]:visited,
+      .btn[disabled]:link,
+      .btn[disabled]:hover,
+      .btn[disabled]:active {
+        border-color: var(--current-btn-disabled-border-color);
+        box-shadow: none;
+        cursor: not-allowed;
+        background-color: var(--current-btn-disabled-bg-color);
+        color: var(--current-btn-disabled-color);
+      }
+      /**
+       * Modifiers
+       */
+      .btn-huge {
+        /* TODO change me to a constant value through current-spacing-design */
+        font-size: 1.6667rem;
+      }
+      .btn-full {
+        width: 100%;
+        padding-right: 0;
+        padding-left:  0;
+      }
+      .btn-icon {
+        width: 2em;
+        border-radius: 6.6666666667em;
+        padding: 1px 0 0 1px;
+      }
+      /**
+       * Btn group styling
+       */
+      .btn-group {
+        @apply(--layout-horizontal);
+      }
+      .btn-group .btn {
+        border-radius: 0;
+        -webkit-appearance: inherit;
+      }
+      .btn-group > .btn:first-of-type {
+        border-radius: 3px 0 0 3px;
+      }
+      .btn-group > .btn:last-of-type {
+        border-radius: 0 3px 3px 0;
+      }
+      .btn-group > .btn + .btn {
+        margin-left: 0;
+      }
+      .btn-group > .btn[active] {
+        color: var(--current-btn-primary-color);
+        background-color: var(--current-btn-primary-bg-color);
+      }
+    </style>
+  </template>
+</dom-module>

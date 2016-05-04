@@ -1,0 +1,19 @@
+<!-- shared styles for all elements and index.html -->
+<dom-module id="shared-styles">
+  <link rel="import" type="css" href="../../bower_components/px-paper-shared-styles/shared-styles.html">
+  <link rel="import" type="css" href="../../bower_components/px-theme/px-app.html">
+  <template>
+    <style>
+      .page-title {
+        @apply(--paper-font-display2);
+      }
+
+      @media (max-width: 600px) {
+        .page-title {
+          font-size: 24px!important;
+        }
+      }
+    </style>
+    <style is="custom-style" include="px-app"></style>
+  </template>
+</dom-module>

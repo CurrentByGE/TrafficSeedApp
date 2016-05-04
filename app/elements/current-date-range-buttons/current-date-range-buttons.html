@@ -1,0 +1,254 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../current-buttons-design/current-buttons-design.html">
+<!--
+`current-date-range-buttons` provides a button group which controls current date range.
+For each date range choice it calculates the start and end times (in seconds
+since the Unix Epoch) using [Moment.js](http://momentjs.com/).
+Valid date range choices include:
+<ul>
+  <li><b>YTD</b> - year to date</li>
+  <li><b>MTD</b> - month to date</li>
+  <li><b>WTD</b> - week to date</li>
+  <li><b>TODAY</b> from the start of today</li>
+</ul>
+Example:
+    <current-date-range-buttons
+      current-date-range="TODAY"
+      start-time={{startTime}}
+      end-time={{endTime}}></current-date-range-buttons>
+The current selected state can be set via the `current-date-range` attribute.
+`start-time` and `end-time` are bound attributes and reflect the start and end
+times of selected date range as milliseconds from Unix Epoch.
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="current-date-range-buttons">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+    </style>
+    <style include="current-buttons-design"></style>
+
+    <div class="btn-group">
+      <template is="dom-repeat" items="[[_dateRanges]]">
+        <button class="btn" active$="[[_getActiveDateRange(item.value, currentDateRange)]]" on-click="_changeDateRange">[[item.label]]</button>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+    /*global moment*/
+    Polymer({
+      is: 'current-date-range-buttons',
+      properties: {
+        /**
+         * Date range choices.
+         */
+        _dateRanges: {
+          type: Array,
+          value: [ {
+            label: '4 Hours',
+            value: '4 Hours'
+          }, {
+            label: '8 Hours',
+            value: '8 Hours'
+          }, {
+            label: '12 Hours',
+            value: '12 Hours'
+          }, {
+            label: '1 Day',
+            value: '1 Day'
+          }]
+        },
+        /**
+         * The currently selected date range.
+         */
+        currentDateRange: {
+          type: String,
+          value: '1 Day',
+          notify: true
+        },
+        /**
+         * Start time of currently selected date range (in milliseconds from Epoch).
+         */
+        startTime: {
+          type: Number,
+          notify: true
+        },
+        /**
+         * End time of currently selected date range (in milliseconds from Epoch).
+         */
+        endTime: {
+          type: Number,
+          notify: true
+        },
+        /**
+         * Range between start time and end time based on currently selected date range (in milliseconds from Epoch).
+         * for eg: if currently selected date range is year then 12 ranges will be added in array.
+         */
+        range: {
+          type: Array,
+          notify: true
+        },
+        /**
+         * get Past String based on current date range selected by user.
+         * for eg: if 1 Week is selected then it will return "7 Days".
+         */
+        pastString: {
+          type: String,
+          notify: true
+        }
+      },
+      // Element Lifecycle
+      attached: function() {
+        this.endTime = Date.now();
+        this.startTime = this._computedStartTime(this.currentDateRange);
+        this.pastString = this._getPastString(this.currentDateRange);
+        this.range = this._computeRangeBetweenStartAndEndTime(this.startTime, this.endTime, this.currentDateRange);
+      },
+      // Element Behavior
+      /**
+       * The `change` event is fired whenever date range is changed.
+       *
+       * @event change
+       * @detail {{dateRange: String, startTime: Number, endTime: Number}}
+       */
+      // Internal Functions
+      _getActiveDateRange: function(type, dg) {
+        return dg === type;
+      },
+      _changeDateRange: function(e) {
+        var indx = e.model.index;
+        var dg = this._dateRanges[indx];
+        this.currentDateRange = dg.value;
+        this.endTime = Date.now();
+        this.startTime = this._computedStartTime(dg.value);
+        this.pastString = this._getPastString(dg.value);
+        this.fire('change', {
+          'currentDateRange': this.currentDateRange,
+          'startTime': this.startTime,
+          'endTime': this.endTime,
+          'pastString': this.pastString
+        });
+
+        this.range = this._computeRangeBetweenStartAndEndTime(this.startTime, this.endTime, this.currentDateRange);
+        this.fire('change', {
+          'range': this.range
+        });
+      },
+      _computedStartTime: function(dateRange) {
+        var ret;
+        switch (dateRange) {
+          case '4 Hours':
+            //ret = moment().startOf('year').valueOf();
+            ret = moment().subtract(4, 'hours').valueOf();
+            break;
+          case '8 Hours':
+            //ret = moment().startOf('week').valueOf();
+            ret = moment().subtract(8, 'hours').valueOf();
+            break;
+          case '12 Hours':
+            //ret = moment().startOf('month').valueOf();
+            ret = moment().subtract(12, 'hours').valueOf();
+            break;
+          default:
+          case '1 Day':
+            //ret = moment().startOf('day').valueOf();
+            ret = moment().subtract(1, 'days').valueOf();
+            break;
+        }
+        return ret;
+      },
+      _computeRangeBetweenStartAndEndTime: function(startTime, endTime, dateRange) {
+        var range = [];
+        range.push(endTime);
+        var i = 0;
+        var calculatedTime = '';
+        switch (dateRange) {
+          case '4 Hours':
+            for (i = 0; i < 4; i++) {
+              calculatedTime = moment(endTime).subtract(i + 1, 'hours').valueOf();
+              if (i === 3 && startTime < calculatedTime) {
+                calculatedTime = startTime;
+              }
+              range.unshift(calculatedTime);
+            }
+            break;
+          case '8 Hours':
+            for (i = 0; i < 8; i++) {
+              calculatedTime = moment(endTime).subtract(i + 1, 'hours').valueOf();
+              if (i === 7 && startTime < calculatedTime) {
+                calculatedTime = startTime;
+              }
+              range.unshift(calculatedTime);
+            }
+            break;
+          case '12 Hours':
+            for (i = 0; i < 12; i++) {
+              calculatedTime = moment(endTime).subtract(i + 1, 'hours').valueOf();
+              if (i === 11 && startTime < calculatedTime) {
+                calculatedTime = startTime;
+              }
+              range.unshift(calculatedTime);
+            }
+            break;
+          case '1 Day':
+            for (i = 0; i < 24; i++) {
+              calculatedTime = moment(endTime).subtract(i + 1, 'hours').valueOf();
+              if (i === 23 && startTime < calculatedTime) {
+                calculatedTime = startTime;
+              }
+              range.unshift(calculatedTime);
+            }
+            break;
+        }
+        return range;
+      },
+      _getPastString: function(dateRange) {
+        var pastString = '';
+        switch (dateRange) {
+          // case '1 Day':
+          //   pastString = '24 Hours';
+          //   break;
+          // case '1 Month':
+          //   pastString = '1 Month';
+          //   break;
+          // case '1 Week':
+          //   pastString = '7 Days';
+          //   break;
+          // case '1 Year':
+          //   pastString = '12 Months';
+          //   break;
+          case '4 Hours':
+            pastString = '4 Hours';
+            break;
+          case '8 Hours':
+            pastString = '8 Hours';
+            break;
+          case '12 Hours':
+            pastString = '12 Hours';
+            break;
+          case '1 Day':
+            pastString = '24 Hours';
+            break;
+        }
+        return pastString;
+      }
+    });
+  </script>
+</dom-module>

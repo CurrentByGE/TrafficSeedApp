@@ -1,0 +1,29 @@
+{
+  "name": "current-seed-app",
+  "version": "0.0.11",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.2.3",
+    "iron-elements": "PolymerElements/iron-elements#^1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.1",
+    "page": "visionmedia/page.js#~1.6.3",
+    "px": "https://github.com/PredixDev/px.git#~v1.2.0",
+    "px-card": "https://github.com/PredixDev/px-card.git#~v0.1.2",
+    "px-login": "https://github.com/PredixDev/px-login.git#~v0.1.1",
+    "px-theme": "https://github.com/GE-KevinOkamoto/px-theme.git#v0.6.5-beta",
+    "leaflet-dist": "https://github.com/vperron/leaflet-dist.git",
+    "leaflet-map": "^1.2.0",
+    "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#^0.8.3",
+    "px-simple-line-chart": "https://github.com/PredixDev/px-simple-line-chart.git#^1.2.5",
+    "moment": "^2.12.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "*",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0"
+  },
+  "resolutions": {
+    "polymer": "~v1.2.3",
+    "px-theme": "~0.3.3",
+    "es6-promise": "~2.3.0"
+  }
+}
