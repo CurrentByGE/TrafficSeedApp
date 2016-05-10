@@ -2,11 +2,19 @@
 local cjson = require('cjson')
 local session_service = require('redis_session')
 local M = {}
+local function getRedirectUrl(ngxHost)
+  local custom_url = os.getenv("CUSTOM_URL")
+  if (custom_url == nil or custom_url == '') then
+    return ngxHost
+  else
+    return custom_url
+  end
+end
 
 function M.getAuthenticationCode()
   local path = '/oauth/authorize'
   local uaa_uri = ngx.var.uaa_uri
-  local redirect_uri_custom = ngx.var.custom_url
+  local redirect_uri_custom = getRedirectUrl(ngx.var.host)
   if uaa_uri ~= nil then
     local query_string = ngx.encode_args({
       response_type = 'code',
@@ -23,7 +31,7 @@ end
 
 function exchangeToken(code)
   local state = ngx.req.get_uri_args().state or '/'
-  local redirect_uri_custom = ngx.var.custom_url
+  local redirect_uri_custom = getRedirectUrl(ngx.var.host)
   local response = ngx.location.capture(
       '/_internal/_access_token', {
           method = ngx.HTTP_POST,
@@ -57,7 +65,7 @@ function M.logout()
   -- Remove our session objects from redis as well
   local session = session_service.getSession()
   session_service.removeSession(session)
-  local redirect_uri_custom = ngx.var.custom_url
+  local redirect_uri_custom = getRedirectUrl(ngx.var.host)
   local uaa_uri = ngx.var.uaa_uri
   if uaa_uri ~= nil then
       local query_string = ngx.encode_args({

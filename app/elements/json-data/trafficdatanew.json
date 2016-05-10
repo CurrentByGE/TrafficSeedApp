@@ -1,1 +1,595 @@
-{"_embedded":{"events":[{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":135.0,"unit":"DEGREE"},{"tag":"speed","value":2.0,"unit":"MPS"},{"tag":"vehicleCount","value":18.0,"unit":null}],"event-uid":"9507e219-745d-41e3-b624-1fdbfe150f0e","timestamp":1461318117419,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":330.0,"unit":"DEGREE"},{"tag":"speed","value":8.0,"unit":"MPS"},{"tag":"vehicleCount","value":3.0,"unit":null}],"event-uid":"33a3dfc3-f6ab-4c39-9214-ed5dfc975297","timestamp":1461318417422,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"truck"},"measures":[{"tag":"direction","value":75.0,"unit":"DEGREE"},{"tag":"speed","value":6.0,"unit":"MPS"},{"tag":"vehicleCount","value":5.0,"unit":null}],"event-uid":"b9951181-ddb3-4dc2-848b-afbe47b97085","timestamp":1461320819104,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"truck"},"measures":[{"tag":"direction","value":0.0,"unit":"DEGREE"},{"tag":"speed","value":4.0,"unit":"MPS"},{"tag":"vehicleCount","value":4.0,"unit":null}],"event-uid":"27b2bf72-4cef-42fc-b0a2-30f8dea23644","timestamp":1461321119107,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":135.0,"unit":"DEGREE"},{"tag":"speed","value":4.0,"unit":"MPS"},{"tag":"vehicleCount","value":4.0,"unit":null}],"event-uid":"0498ca1b-40f3-4ee8-9f8f-67968760323d","timestamp":1461323520798,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":225.0,"unit":"DEGREE"},{"tag":"speed","value":15.0,"unit":"MPS"},{"tag":"vehicleCount","value":5.0,"unit":null}],"event-uid":"24ede479-15a2-4c5f-8ca2-726c6a731421","timestamp":1461323820801,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":90.0,"unit":"DEGREE"},{"tag":"speed","value":10.0,"unit":"MPS"},{"tag":"vehicleCount","value":17.0,"unit":null}],"event-uid":"6f8ff690-9022-41bf-b326-68d55b49b491","timestamp":1461326222594,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"motorcycle"},"measures":[{"tag":"direction","value":135.0,"unit":"DEGREE"},{"tag":"speed","value":13.0,"unit":"MPS"},{"tag":"vehicleCount","value":2.0,"unit":null}],"event-uid":"72e4df8f-d182-4a0c-86b5-c083e3a2adab","timestamp":1461326522597,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":75.0,"unit":"DEGREE"},{"tag":"speed","value":19.0,"unit":"MPS"},{"tag":"vehicleCount","value":8.0,"unit":null}],"event-uid":"9a7206f0-8da1-4f60-ae9e-7a267f2af55c","timestamp":1461328924293,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":15.0,"unit":"DEGREE"},{"tag":"speed","value":9.0,"unit":"MPS"},{"tag":"vehicleCount","value":8.0,"unit":null}],"event-uid":"54fe700f-5198-4e31-bbce-0e02a7b6a002","timestamp":1461329224296,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"truck"},"measures":[{"tag":"direction","value":180.0,"unit":"DEGREE"},{"tag":"speed","value":11.0,"unit":"MPS"},{"tag":"vehicleCount","value":2.0,"unit":null}],"event-uid":"585e3177-9241-491c-a788-f3c3df32c0e2","timestamp":1461331626015,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":30.0,"unit":"DEGREE"},{"tag":"speed","value":6.0,"unit":"MPS"},{"tag":"vehicleCount","value":15.0,"unit":null}],"event-uid":"83b4b36c-ed4c-4329-9a31-ed28f8db86d3","timestamp":1461331926018,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"truck"},"measures":[{"tag":"direction","value":165.0,"unit":"DEGREE"},{"tag":"speed","value":22.0,"unit":"MPS"},{"tag":"vehicleCount","value":20.0,"unit":null}],"event-uid":"401b917b-7fd4-40dd-a917-18cc1d217e23","timestamp":1461334327873,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"other"},"measures":[{"tag":"direction","value":0.0,"unit":"DEGREE"},{"tag":"speed","value":0.0,"unit":"MPS"},{"tag":"vehicleCount","value":0.0,"unit":null}],"event-uid":"3284b609-01c0-4539-8a9e-f9ec02e5908f","timestamp":1461334627875,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"motorcycle"},"measures":[{"tag":"direction","value":60.0,"unit":"DEGREE"},{"tag":"speed","value":14.0,"unit":"MPS"},{"tag":"vehicleCount","value":13.0,"unit":null}],"event-uid":"ab016595-72ae-4cc9-95cb-7ca94875954c","timestamp":1461337029606,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":60.0,"unit":"DEGREE"},{"tag":"speed","value":5.0,"unit":"MPS"},{"tag":"vehicleCount","value":13.0,"unit":null}],"event-uid":"fa010f54-2acc-422f-ac6d-02d7c8e4c19a","timestamp":1461337329608,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":255.0,"unit":"DEGREE"},{"tag":"speed","value":14.0,"unit":"MPS"},{"tag":"vehicleCount","value":2.0,"unit":null}],"event-uid":"306eb503-ee19-4088-ade6-f12aee86cdd0","timestamp":1461339731304,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":90.0,"unit":"DEGREE"},{"tag":"speed","value":10.0,"unit":"MPS"},{"tag":"vehicleCount","value":3.0,"unit":null}],"event-uid":"e2241aa0-7283-44c6-979b-d53423c6c8c6","timestamp":1461340031307,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":195.0,"unit":"DEGREE"},{"tag":"speed","value":2.0,"unit":"MPS"},{"tag":"vehicleCount","value":18.0,"unit":null}],"event-uid":"cf5c6cc0-3582-4571-8e24-2fa1a73e9513","timestamp":1461342433058,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"car"},"measures":[{"tag":"direction","value":105.0,"unit":"DEGREE"},{"tag":"speed","value":16.0,"unit":"MPS"},{"tag":"vehicleCount","value":5.0,"unit":null}],"event-uid":"0f23da9c-d654-403b-bdb2-0f698b911346","timestamp":1461342733061,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"},{"properties":{"vehicle-type":"truck"},"measures":[{"tag":"direction","value":255.0,"unit":"DEGREE"},{"tag":"speed","value":10.0,"unit":"MPS"},{"tag":"vehicleCount","value":9.0,"unit":null}],"event-uid":"14bc77e8-16bb-4efb-bff7-c6edf515939b","timestamp":1461345134824,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane1"},{"properties":{"vehicle-type":"truck"},"measures":[{"tag":"direction","value":0,"unit":"DEGREE"},{"tag":"speed","value":14.0,"unit":"MPS"},{"tag":"vehicleCount","value":11.0,"unit":null}],"event-uid":"b3d37726-c77f-4024-b06a-a8af66343eb5","timestamp":1461345434828,"event-type":"TFEVT-SLOW","device-uid":"HYP1040-75","location-uid":"Lane2"}]},"_links":{"self":{"href":"http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000018/events?event-types=TFEVT-SLOW&start-ts=1461317311406&end-ts=1461360511406&size=1000"},"next-page":{"href":"http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000018/events?event-types=TFEVT-SLOW&start-ts=0&end-ts=1461360511406&size=1000"}},"page":{"size":1000,"totalElements":22,"totalPages":1,"number":0}}
+{
+  "_embedded": {
+    "events": [
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 53,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 181.5150208502,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 53,
+            "unit": null
+          }
+        ],
+        "event-uid": "0cf3d66d-0f87-41e2-a662-7c357bf19f1b",
+        "timestamp": 1462539600000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 50,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 166.5856876556,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 50,
+            "unit": null
+          }
+        ],
+        "event-uid": "73d7e4dc-f8c9-4568-b046-d297c2be64f0",
+        "timestamp": 1462540500000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 46,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 153.79666321349998,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 46,
+            "unit": null
+          }
+        ],
+        "event-uid": "45501d78-135d-4c4a-a66c-85273cb6ea6c",
+        "timestamp": 1462541400000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 62,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 198.75258014599999,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 62,
+            "unit": null
+          }
+        ],
+        "event-uid": "51e73a77-278c-432a-ba14-c70c59000e1a",
+        "timestamp": 1462542300000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 55,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 185.3180813608,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 56,
+            "unit": null
+          }
+        ],
+        "event-uid": "dfda9037-1001-4c07-b7f4-b48348f96163",
+        "timestamp": 1462543200000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 61,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 212.87535827099998,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 61,
+            "unit": null
+          }
+        ],
+        "event-uid": "50bb4126-6c0c-4453-9f20-219e859006cd",
+        "timestamp": 1462544100000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 49,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 176.37879463139998,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 49,
+            "unit": null
+          }
+        ],
+        "event-uid": "524e2ac4-4e9b-4a4e-b11a-4ed4ad3f0939",
+        "timestamp": 1462545000000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 53,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 162.28478669999998,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 53,
+            "unit": null
+          }
+        ],
+        "event-uid": "00f655ad-106c-4934-8c32-45789f24bf6e",
+        "timestamp": 1462545900000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 55,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 152.88129448009997,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 55,
+            "unit": null
+          }
+        ],
+        "event-uid": "167ae864-d132-4273-aa5c-efa8e17d87fc",
+        "timestamp": 1462546800000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 67,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 217.70700724570003,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 67,
+            "unit": null
+          }
+        ],
+        "event-uid": "38db71e5-8cdc-4f94-acd8-936cc00824d3",
+        "timestamp": 1462547700000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 48,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 167.12294865770002,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 48,
+            "unit": null
+          }
+        ],
+        "event-uid": "52aec649-5789-42f6-bb72-1f0024e7ef46",
+        "timestamp": 1462548600000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 54,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 161.4114094278,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 54,
+            "unit": null
+          }
+        ],
+        "event-uid": "85d5f8f6-7b2f-4cae-933b-afcd12b0c927",
+        "timestamp": 1462549500000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 50,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 153.8044494513,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 50,
+            "unit": null
+          }
+        ],
+        "event-uid": "6bfcea86-00c9-4115-a1fa-97c70b253e22",
+        "timestamp": 1462550400000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 51,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 138.03716661730002,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 51,
+            "unit": null
+          }
+        ],
+        "event-uid": "489a7a5c-f036-431d-a4be-48b9dcbefbd4",
+        "timestamp": 1462551300000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 49,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 176.5712526516,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 49,
+            "unit": null
+          }
+        ],
+        "event-uid": "1c752858-97ef-4dfa-8228-36b19122bf71",
+        "timestamp": 1462552200000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 61,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 176.8862985597,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 61,
+            "unit": null
+          }
+        ],
+        "event-uid": "882b27ab-bbc8-4851-a737-81280c5ab577",
+        "timestamp": 1462553100000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 50,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 143.38445141500003,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 50,
+            "unit": null
+          }
+        ],
+        "event-uid": "c4f946ad-d9e7-4a15-b353-93b1ac62fae4",
+        "timestamp": 1462554000000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 55,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 183.13390961724,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 55,
+            "unit": null
+          }
+        ],
+        "event-uid": "b33b99e2-1893-46a5-975d-d090a62c7727",
+        "timestamp": 1462554900000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 53,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 179.2247618834,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 53,
+            "unit": null
+          }
+        ],
+        "event-uid": "116ff1da-d216-4820-8f5c-4550262e0727",
+        "timestamp": 1462555800000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 60,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 187.39686831500003,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 60,
+            "unit": null
+          }
+        ],
+        "event-uid": "190558f8-5bc7-4f21-b317-68280a016a8e",
+        "timestamp": 1462556700000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 53,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 177.2402823055,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 53,
+            "unit": null
+          }
+        ],
+        "event-uid": "5b5cbeeb-d5bd-49e2-b980-cf9908025a2a",
+        "timestamp": 1462557600000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 59,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 184.004901711,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 59,
+            "unit": null
+          }
+        ],
+        "event-uid": "24e3177c-0f61-4ad8-bc26-25aa4d695581",
+        "timestamp": 1462558500000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      },
+      {
+        "properties": {},
+        "measures": [
+          {
+            "tag": "totalMeasuresCount",
+            "value": 25,
+            "unit": null
+          },
+          {
+            "tag": "totalSpeed",
+            "value": 80.385285186,
+            "unit": "MPS"
+          },
+          {
+            "tag": "totalVehicleCount",
+            "value": 25,
+            "unit": null
+          }
+        ],
+        "event-uid": "4663eeaf-ede4-48a2-84ab-f59335daf607",
+        "timestamp": 1462559400000,
+        "event-type": "TFEVT-D",
+        "device-uid": "*J97B0EHS",
+        "location-uid": "*8EFT53X7"
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://ie-traffic-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000268/events?event-types=TFEVT-D&start-ts=1462538884782&end-ts=1462582084781&page=1&size=500"
+    },
+    "next-page": {
+      "href": "http://ie-traffic-dev.run.aws-usw02-pr.ice.predix.io/v1/assets/1000000268/events?event-types=TFEVT-D&start-ts=0&end-ts=1462582084781&size=500"
+    }
+  },
+  "page": {
+    "size": 500,
+    "totalElements": 23,
+    "totalPages": 1,
+    "number": 0
+  }
+}

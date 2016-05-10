@@ -91,13 +91,70 @@ Traffic Seed App is using Predix Platform and Cloud Foundry to push the applicat
 For more information on using Predix platform and Cloud Foundry, check [this](https://predix-io.run.asv-pr.ice.predix.io/resources) website.
 
 ## Setup services for your own development
-Once you're ready to actually start developing, you'll need to setup your own [UAA service](https://predix-io.run.asv-pr.ice.predix.io/docs/?b=#X9M7hYj6). For ease of use, use the [Predix Starter Kit](https://predix-starter.run.aws-usw02-pr.ice.predix.io/) to create users, groups and password.
+1)	[Deploy Hello World App](https://www.predix.io/docs/?r=265150#IqAL3Fzb)
+
+2)	Subscribe to UAA and IE services via Predix Catalog
+-	[predix-uaa](https://www.predix.io/services/service.html?id=1172)
+-	[ie-traffic](https://www.predix.io/services/service.html?id=1763)
+-	[ie-parking](https://www.predix.io/services/service.html?id=1765)
+- [ie-pedestrian](https://www.predix.io/services/service.html?id=1766)
+-	[ie-public-safety](https://www.predix.io/services/service.html?id=1767)
+-	[Key-Value Store (Redis)](https://www.predix.io/services/service.html?id=1215)
+
+3)	[Bind UAA and IE services to Hello World](http://currentbyge.github.io/GE_Current_Documentation/#t_binding_app.html)
+```
+cf bind-service <your_app_name> <service_instance_name>
+```
+
+4)	[Updating the OAuth2 Client to Use Your Service Instance](http://currentbyge.github.io/GE_Current_Documentation/#t_updating_oauth.html)
+-	Make sure you provide the IE services oauth-scope in the scope and authorities from “step 10” when using the Predix Starter Kit to generate the client_id, client_secret and token.
+-	To retrieve the oauth-scope, use this command:
+```
+cf env <your_app_name>
+```
+-	Enter the oauth-scope when generating the client token
+```
+{"client_id":"traffic_test2","client_secret":"traffic2","scope":["uaa.none","openid", "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"],"authorized_grant_types":["authorization_code","client_credentials","refresh_token","password"],"authorities":["openid","uaa.none","uaa.resource", "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"],"autoapprove":["openid”]}
+```
+-	Now, you can start making Predix API calls using this token.
+
+5) You also need to create a user and associate the user to a group for login page in the [Predix Starter Kit](https://predix-starter.run.aws-usw02-pr.ice.predix.io/).
+
 
 ### Service Reference
-Once the UAA setup is done, you will have to get the service reference to be used in manifest.yml. To get the details of available microservices from Cloud Foundry, follow the steps on [this](https://www.predix.io/docs/?r=250183#XpKGAdQ7-Q0CoIStl) link.
+Once the UAA and services setup is done, you will have to get the service reference to be used in manifest.yml.
 
-#### ie-traffic service
-For Traffic Seed App, the ie-traffic microservice is used which can be found in cf marketplace as mentioned in section 'Service Reference'. For more information on usage of the microservice, please visit the following urls:
+#### Quick Start with Intelligent Environment (Cities and Enterprise APIs)
+1)  Get List of Asset or Location using [HEOTAS](http://currentbyge.github.io/GE_Current_Documentation/#c_standards.html). For specific event-type or location-type, see [Get List of Asset](http://currentbyge.github.io/GE_Current_Documentation/#r_get_list_of_assets_api.html) and [Get List of Locations](http://currentbyge.github.io/GE_Current_Documentation/#r_get_list_of_locations_api.html), respectively.
+
+2)	Modify the [query string parameters](http://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_general_apis.html) for each tile.
+
+3) Notes:
+-	For media (images, audio, and video), subscribe to the [ie-public-safety](https://www.predix.io/services/service.html?id=1767) tile in the [Predix Catalog](https://www.predix.io/catalog/).
+-	Use the timestamp values in EPOCH format, which can be found [timestamp](http://currentmillis.com/). Please make sure that the EPOCH format time includes the milliseconds as well. Example of getting timestamp in JavaScript in this format is as below:
+```
+(new Date()).getTime();
+```
+Additional information can be found in Traffic Seed App where we are using moment.js for getting the timestamp in EPOCH format.
+-	API Responses are in HTTP and not HTTPS. When making requests, please ensure you are using HTTPS.
+```
+{
+  "_links": {
+    "assets": {
+      "href": "http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/assets"
+    },
+    "locations": {
+      "href": "http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/locations"
+    }
+  }
+}
+```
+
+#### Which microservices are available on Cloud Foundry
+To get the details of available microservices from Cloud Foundry, follow the steps on [this](https://www.predix.io/docs/?r=250183#XpKGAdQ7-Q0CoIStl) link.
+
+#### How do I use GE Current Intelligent Environments Services and APIs
+For more information on usage of the Intelligent Environments Services and APIs, please visit the following urls:
 
   1. [Intelligent Environments Overview](https://currentbyge.github.io/GE_Current_Documentation/#c_about_intelligent_environments.html)
   2. [General APIs](https://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_general_apis.html)
@@ -111,22 +168,66 @@ cf cs redis <plan> <instance_name>
 ```
 
 ### Update manifest.yml
-You'll need to change these fields (pulled from [VCAP_SERVICES](https://www.predix.io/docs#X9M7hYj6)) in your manifest.yml before pushing to the cloud.
+You’ll need to change these fields in your manifest.yml file before pushing the application to the cloud. You can pull these field from VCAP_Services by using below command
+```
+cf env <Your-App-Name>
+```
+You’ll also need to create a client_id in the Predix Starter Kit. See step 4 in above section “Setup services for your own development”
 ```
   - name: traffic-seed-app # change this to your application name
     services:
             - your_redis_instance # change this to your redis service instance name
             - your_view_service_instance # change this to your view service instance name
     env:
-      UAA_CLIENT_CREDENTIALS: "Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=" # change it to your client_id:client_secret base 64 encoded string
+      UAA_CLIENT_CREDENTIALS: "Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=" # change it to your client_id:client_secret base 64 encoded string. Use [this](https://www.base64encode.org/) to convert client_id:client_secret to base 64 encoded value.
       RESOURCE_URL: https://your-servive-url.run.aws-usw02-pr.ice.predix.io # change to your api resource url which can be found in Cloud Foundry marketplace
       UAA_URI: https://your-uaa-uri.predix-uaa.run.aws-usw02-pr.ice.predix.io # change to your UAA uri shown in VCAP services
-      UAA_CLIENT_ID: client_id # change it to your client id
-      ASSET_ZONE_ID: zone_id # change to your zone id shown in VCAP services
-```
+      UAA_CLIENT_ID: client_id # change it to your client id. See step 4 in above section “Setup services for your own development”
+      PREDIX_ZONE_ID: zone_id # change to your zone id shown in VCAP services
+
+"VCAP_SERVICES": {
+  "ie-traffic": [
+   {
+    "credentials": {
+     <b>"url": "https://ie-traffic.run.aws-usw02-pr.ice.predix.io",</b>
+     "zone": {
+      "http-header-name": "Predix-Zone-Id",
+      **"http-header-value": "334d60f8-2bdf-4b9b-a561-1b16a6f2df0e",**
+      "oauth-scope": "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"
+     }
+    },
+    "label": "ie-traffic",
+    "name": "janine_parking",
+    "plan": "Beta",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": []
+   }
+  ],
+  "predix-uaa": [
+   {
+    "credentials": {
+     "issuerId": "https://a14f01fc-f50e-4db7-8bb0-bed1c887ea98.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token",
+     **"uri": "https://a14f01fc-f50e-4db7-8bb0-bed1c887ea98.predix-uaa.run.aws-usw02-pr.ice.predix.io",**
+     "zone": {
+      "http-header-name": "X-Identity-Zone-Id",
+      "http-header-value": "a14f01fc-f50e-4db7-8bb0-bed1c887ea98"
+     }
+    },
+    "label": "predix-uaa",
+    "name": "janine_uaa2",
+    "plan": "Tiered",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": []
+   }
+  ]
+ }
+}
+  ```
 
 ### Update nginx.conf
-You need to make sure that nginx.conf (in the root folder which gets copied into dist) has references to the RESOURCE_URL and ASSET_ZONE_ID which is whatever you specified in 'Update manifest.yml' section.
+You need to make sure that nginx.conf (in the root folder which gets copied into dist) has references to the RESOURCE_URL and PREDIX_ZONE_ID which is whatever you specified in 'Update manifest.yml' section.
 ```
 # for example,
 set $user_token "";
@@ -134,7 +235,7 @@ location /services/ {
   # Code executed for all on /service
   access_by_lua_file '<%=ENV["APP_ROOT"]%>/nginx/scripts/set_access_token.lua';
   proxy_set_header Authorization $user_token;
-  proxy_set_header Predix-Zone-Id <%=ENV["ASSET_ZONE_ID"]%>; # it uses the ASSET_ZONE_ID you have set in 'Update manifest.yml' section
+  proxy_set_header Predix-Zone-Id <%=ENV["PREDIX_ZONE_ID"]%>; # it uses the PREDIX_ZONE_ID you have set in 'Update manifest.yml' section
   proxy_set_header accept application/hal+json;
   rewrite  /services/(.*) /$1 break;
   proxy_pass "<%=ENV["RESOURCE_URL"]%>"; # it uses the RESOURCE_URL you have set in 'Update manifest.yml' section

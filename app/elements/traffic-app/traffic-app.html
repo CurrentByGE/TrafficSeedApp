@@ -34,9 +34,9 @@
 <dom-module id="traffic-app">
   <template>
     <style is="custom-style" include="shared-styles"></style>
-    <iron-ajax auto id="idInitCall" url="[[baseUrl]]" handle-as="json" on-response="_handleInitResponse"></iron-ajax>
+    <iron-ajax auto id="idInitCall" url="[[baseUrl]]" timeout="[[timeoutMilliseconds]]" on-error="_handleApiCallError" handle-as="json" on-response="_handleInitResponse"></iron-ajax>
 
-    <iron-ajax auto url="[[dataSourceUrl]]" handle-as="json" on-response="_handleDataSourceResponse"></iron-ajax>
+    <iron-ajax auto id="idAseetApiCall" url="[[dataSourceUrl]]" timeout="[[timeoutMilliseconds]]" on-error="_handleApiCallError" handle-as="json" on-response="_handleDataSourceResponse"></iron-ajax>
 
     <iron-ajax auto id="idSearchApiCall"  url="[[searchUrl]]" timeout="[[timeoutMilliseconds]]" on-error="_handleApiCallError" handle-as="json" params=[[_searchApiParams]] on-response="_handleSearchEventResponse"></iron-ajax>
 
@@ -511,6 +511,12 @@
           if (eventsObj.recentData && eventsObj.recentData.event) {
             if (eventsObj.recentData.event['location-uid']) {
               chart.recent.location = eventsObj.recentData.event['location-uid'];
+              var deviceUid =  eventsObj.recentData.event['device-uid']+'-';
+              if(deviceUid && chart.recent.location) {
+                if(chart.recent.location.indexOf(deviceUid) > -1) {
+                  chart.recent.location = chart.recent.location.slice(deviceUid.length);
+                }
+              }
               isRecentDataUpdate = true;
             }
             if (eventsObj.recentData.event.measures) {
@@ -575,16 +581,27 @@
                     for (var msrsIdx = 0; msrsIdx < event.measures.length; msrsIdx++) {
                       var measure = event.measures[msrsIdx];
                       switch (measure.tag) {
-                        case 'speed':
+                        case 'totalSpeed':
                           xAxisArr[rangeIdx].speed.totalSpeed += this._convertSpeedValueInDesiredUnit(measure.value, measure.unit);
-                          xAxisArr[rangeIdx].speed.totalCount += 1;
+                          xAxisArr[rangeIdx].speed.totalSpeedCount += 1;
 
                           totals.speed.totalSpeed += this._convertSpeedValueInDesiredUnit(measure.value, measure.unit);
-                          totals.speed.totalCount += 1;
+                          totals.speed.totalSpeedCount += 1;
 
                           eventsObj.speedUnit = measure.unit;
                           break;
+                        case 'totalMeasuresCount':
+                          xAxisArr[rangeIdx].speed.totalCount += measure.value;
+                          totals.speed.totalCount += measure.value;
+                          break;
                         case 'vehicleCount':
+                          xAxisArr[rangeIdx].vehicleCount.totalVehicle += measure.value;
+                          xAxisArr[rangeIdx].vehicleCount.totalCount += 1;
+
+                          totals.vehicleCount.totalVehicle += measure.value;
+                          totals.vehicleCount.totalCount += 1;
+                          break;
+                        case 'totalVehicleCount':
                           xAxisArr[rangeIdx].vehicleCount.totalVehicle += measure.value;
                           xAxisArr[rangeIdx].vehicleCount.totalCount += 1;
 
@@ -642,6 +659,7 @@
           var totals = {
             speed: {
               totalSpeed: 0,
+              totalSpeedCount: 0,
               totalCount: 0
             },
             vehicleCount: {
@@ -700,7 +718,7 @@
          */
         _onParamsChange: function(startTm, endTm, size) {
           return {
-            'event-types': 'TFEVT-SLOW',
+            'event-types': 'TFEVT-D',
             'start-ts': startTm,
             'end-ts': endTm,
             'size': size

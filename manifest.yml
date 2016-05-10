@@ -7,12 +7,14 @@ path: dist
 services:
     - ie-predix-uaa
     - event-service-redis
+    - ie-traffic-service
 env:
-    UAA_CLIENT_CREDENTIALS: "aWVzX2RldjpQQDU1dzByZA=="
-    RESOURCE_URL: https://ie-traffic.run.aws-usw02-pr.ice.predix.io
-    UAA_URI: https://2d8ccc15-2d57-4535-8448-ac9c1be562be.predix-uaa.run.aws-usw02-pr.ice.predix.io
-    UAA_CLIENT_ID: ies_dev
-    ASSET_ZONE_ID: ies-dev
+    UAA_CLIENT_CREDENTIALS: "dWlfY2xpZW50OnVpX2NsaWVudA=="
+    RESOURCE_URL: https://ie-traffic.run.aws-usw02-pr.ice.predix.io #VCAP_SERVICES
+    UAA_URI: https://b234e9eb-d6ff-4987-a55c-73b126b6a30d.predix-uaa.run.aws-usw02-pr.ice.predix.io #VCAP_SERVICES
+    UAA_CLIENT_ID: ui_client
+    PREDIX_ZONE_ID: f7d7a2c7-3dd1-45b3-b1dd-9d76d046a177 #VCAP_SERVICES
+    # CUSTOM_URL: seedapp.geintelligentcities.com
 # env:
 #       CLIENT_AUTH_KEY: "aWVzX2RldjpQQDU1dzByZA=="
 #       RESOURCE_URL: https://ie-traffic-dev.run.aws-usw02-pr.ice.predix.io
