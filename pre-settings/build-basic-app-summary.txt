@@ -1,0 +1,10 @@
+Application URL:	
+GitHub URL to Clone:	git@github.build.ge.com:adoption/predix-nodejs-starter.git
+Application Name:	svc-test
+UAA URI: https://837ba2b9-a177-4874-bfcf-4bdc6d063f8d.predix-uaa.run.aws-usw02-pr.ice.predix.io
+UAA Cliend ID:	test_admin
+TimeSeries URI to query data:	https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints
+TimeSeries Zone ID:	3f256817-8a04-487a-8427-26087b8966b7
+Asset URI to query assets:	https://predix-asset.run.aws-usw02-pr.ice.predix.io
+The tagname to query for:	/assset/edison1
+Asset Zone ID:	temperature

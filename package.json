@@ -28,7 +28,6 @@
     "jshint-stylish": "^2.0.0",
     "merge-stream": "^0.1.7",
     "polybuild": "^1.0.5",
-    "px-nginx-configs": "git+https://github.build.ge.com/212422863/px-nginx-configs.git#v0.0.5",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "vulcanize": ">= 1.4.2",

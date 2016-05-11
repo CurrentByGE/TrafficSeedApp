@@ -1,0 +1,373 @@
+cat << EOF
+Welcome new Predix Developers!
+
+Time to build out our first Predix Application from the command line.
+Do not worry, we will explain everything as we execute each command, so
+you will not need to worry if you know nothing about Predix or Cloud Foundry.
+
+The goal of this script is to help you understand how to set up a new Predix App,
+including UAA, TimeSeries, Asset and Views. Lastly, we will configure Predix Machine
+for your Raspberry Pi.
+
+Now it is time to log into our Predix Account.  Throughout this script we will be storing
+your answers in variables.sh, so that you could execute this script headless in future
+executions.
+
+Please set the following variables to do this:
+
+1) Predix API endpoint, which is your Cloud Foundry host domain name.
+
+CF_HOST=<api.endpoint.predix.io>
+
+Right now there are two main endpoints:
+1) Predix Basic Account : api.system.aws-usw02-pr.ice.predix.io
+2) Predix Select Account : api.system.asv-pr.ice.predix.io
+
+EOF
+
+$1 = api.system.aws-usw02-pr.ice.predix.io
+$2 = api.system.asv-pr.ice.predix.io
+
+read -s CF_HOST
+
+cat << EOF
+2) Predix Organization, which is your Cloud Foundry Organization.
+
+CF_ORG=<my.org>
+EOF
+
+read -s CF_ORG
+
+cat << EOF
+3) Predix Space, which is your Cloud Foundry Space.
+
+CF_SPACE=<dev>
+EOF
+
+read -s CF_SPACE
+
+cat << EOF
+4) Predix Username
+
+CF_USERNAME=<my.predix.account.email@myorg.com>
+EOF
+
+read -s CF_USERNAME
+
+cat << EOF
+Lastly, please ENTER YOUR PASSWORD now followed by ENTER. Do not worry, we are not storing this.
+EOF
+
+read -s CF_PASSWORD
+
+cat << EOF
+Now that we have your variables, it is time to execute the Predix Login command.
+
+You will notice that these commands all start with cf, which stands for Cloud Foundry.  Predix
+uses Cloud Foundry behind the scenes.  (BETTER EXPLANATION PLEASE)
+
+EOF
+
+cf login -a $CF_HOST -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE --skip-ssl-validation
+
+cat << EOF
+The simple "cf login" command uses the following parameters, which you can explicitly set.
+-a: Predix Cloud Foundry API endpoint
+-u: Predix Username
+-p: Predix PASSWORD
+-o: Predix Cloud Foundry Organization
+-s: Predix Cloud Foundry Space
+--skip-ssl-validation: WHAT'S THIS DO???
+
+EOF
+
+If you don't put these parameters inline with the command, don't worry.  If
+you only typed "cf login" for your command, then it will ask you for each of these parameters
+one-by-one. We use the full command to script the process, so it could run with minimal manual
+command line interaction.
+
+Great! Now we are logged in and we can begin creating Predix Services in our Predix Space.
+
+First, let's take a look at all the available services in our Predix Cloud Foundry Marketplace.
+
+The command "cf marketplace" or "cf m" outputs this in terminal for us.
+
+cf m
+
+GREP and auto set the variables for each service :)!
+
+As you can see above, it lists the service name, what plans your Predix account has access to,
+and a simple description of the Predix Services.
+
+The first Predix Service that we instantiate is almost always the UAA Service.
+
+User Account and Authentication (UAA) is a web service provided by Cloud Foundry to manage users
+and OAuth2 clients. Its primary role is as an OAuth2 provider, issuing tokens for client applications
+to use when they act on behalf of Cloud Foundry users. In collaboration with the login server, it can
+authenticate users with their Predix Cloud Foundry credentials, and can act as an SSO service using those
+credentials (or others). The service provides endpoints for managing user accounts and for registering
+OAuth2 clients.
+
+The Predix platform provides UAA as a service for developers to authenticate their application users.
+As a Predix platform user, you can secure access to your application by obtaining a UAA instance from
+the Cloud Foundry marketplace and configuring it to authenticate trusted users.
+
+All Predix platform services require a UAA instance to ensure secure use of each service.
+
+cf cs $UAA_SERVICE_NAME $UAA_PLAN $UAA_INSTANCE_NAME -c "{\"adminClientSecret\":\"$UAA_ADMIN_SECRET\"}"
+
+The command that we just ran deserves some explanation.
+
+"cf create-service" or "cf cs" creates a new service instance in our Predix Space that we are logged into.
+
+The first parameter for "cf cs" is the service name.  This matches the name of you see outputted in "cf m".
+For the UAA service, it is $UAA_SERVICE_NAME.
+
+Then, we state the Plan used for the Service, also matching the output from "cf m".
+For your UAA service, it is $UAA_PLAN.
+
+Next, we state the unique name used for the Service, which you can specify as anything.
+For your UAA service, it is $UAA_INSTANCE_NAME, which we set for you.
+
+Finally, -c "{\"adminClientSecret\":\"$UAA_ADMIN_SECRET\"}"
+PLEASE EXPLAIN THIS!!!
+
+In summary, the create service command always has the format:
+"cf cs <service_name> <plan_type> <unique_instance_name> -c <specific_to_service>"
+
+******Adrian please do this section.  You have the best understanding.*************
+      #Push a test app to get credentials
+      echo -e " ### Pushing $TEMP_APP to initially create Predix Microservices ... ###\n"
+
+      cd testapp
+      cf push $TEMP_APP --no-start --random-route
+***********************************************************************************
+
+Great! Now we have pushed our app to Predix, however we must still bind it to our UAA Service instance.
+
+What does it mean to bind a service?  In the simplest sense, you bind a service instance to the Predix
+Application you have created.  You could bind a single service instance to multiple applications this way.
+Also, you could bind a new instance of a specific service to your app, without needing to re-bind all the
+app's services.
+
+I know this may be a bit confusing in words, so refer to the tutorial document to see the graphic that makes
+it easier to understand.
+
+Now that we have a general understanding of what it means to bind a service. Let's bind the UAA Service Instance,
+$UAA_INSTANCE_NAME to our $TEMP_APP.
+
+cf bs $TEMP_APP $UAA_INSTANCE_NAME
+
+Congrats! You now have a UAA service instance bound to your app.
+
+The bind service command that we just ran deserves some explanation.
+
+"cf bind-service" or "cf bs" binds the service instance to the Predix Application.
+
+The first parameter for "cf bs" is the Predix Application name.
+For this command's execution, we used $TEMP_APP.
+
+In the second and final parameter, we state the service's instance name.
+Since we are bind the UAA service, we use $UAA_INSTANCE_NAME for this parameter.
+
+In summary, the bind service command always has the format:
+"cf bs <app_name> <service_instance_name>"
+
+Now that we have a service bound to your application, let's make sure that it is included in the app's
+environment variables.
+
+cf env $TEMP_APP
+
+What you can see in the JSON object output above is the environment variables for your application.  This
+includes the list of all the services bound to your app.
+
+You should now see "predix-uaa" listed as one of your "VCAP_SERVICES" with the variables for your
+uaa service instance.
+
+Two important environment variables is your trusted issuer id and your UAA uri.
+
+-Your trusted issuer id is the UAA REST URL you use to get oauth tokens from your UAA Service.
+-Your UAA uri is simply the UAA URL for your UAA service. (ADRIAN CAN YOU DO BETTER?)
+
+trustedIssuerID=$(cf env $TEMP_APP | grep predix-uaa* | grep issuerId*| awk 'BEGIN {FS=":"}{print "https:"$3}' | awk 'BEGIN {FS="\","}{print $1}' )
+uaaURL=$(cf env $TEMP_APP | grep predix-uaa* | grep uri*| awk 'BEGIN {FS=":"}{print "https:"$3}' | awk 'BEGIN {FS="\","}{print $1}' )
+
+In the case of your application, these variables are:
+-Trusted Issuer ID: $trustedIssuerID
+-UAA URI: $uaaURL
+
+Now that we have set up your UAA service and bound it to your application, we are going to add more
+Predix Services to your application.  Next up, is the Predix Time Series service.
+
+The Time Series service provides the following benefits:
+
+-Efficient storage of time series data.
+-Indexing the data for quick retrieval.
+-High availability so you can access and query your data from anywhere via HTTP.
+-Horizontal scalability.
+-Millisecond data point precision.
+
+First, we will create the Time Series Service instance for our Predix Space.  Similar to the UAA create
+service command...we now will execute the Time Series create service command.
+
+cf cs $TIMESERIES_SERVICE_NAME $TIMESERIES_SERVICE_PLAN $TIMESERIES_INSTANCE_NAME -c "{\"trustedIssuerIds\":[\"$trustedIssuerID\"]}"
+
+Once again, just for a reminder "cf create-service" or "cf cs" creates a new service instance
+in our Predix Space that we are logged into.
+
+The first parameter for "cf cs" is the service name.  This matches the name of you see outputted in "cf m".
+For the Time Series service, it is $TIMESERIES_SERVICE_NAME.
+
+Then, we state the Plan used for the Service, also matching the output from "cf m".
+For the Time Series service, it is $TIMESERIES_SERVICE_PLAN.
+
+Next, we state the unique name used for the Service, which you can specify as anything.
+For your Time Series service, it is $TIMESERIES_INSTANCE_NAME, which we set for you.
+
+Finally, -c "{\"trustedIssuerIds\":[\"$trustedIssuerID\"]}"
+PLEASE EXPLAIN THIS!!!
+
+Now that we have the Time Series Service instance created, let's bind our $TEMP_APP to it.
+
+cf bs $TEMP_APP $TIMESERIES_INSTANCE_NAME
+
+Congrats! You now have a Time Series service instance bound to your app.
+
+As a quick refresher, the "cf bind-service" or "cf bs" binds the service instance to
+the Predix Application.
+
+Now that we have the Time Series service bound to your application, let's make sure that it
+is included in the app's environment variables.
+
+cf env $TEMP_APP
+
+You should now see "predix-timeseries" listed as one of your "VCAP_SERVICES".
+
+Three important environment variables from the Time Series environment variables are such:
+
+-Time Series Predix Zone ID: This uniquely identifies your Time Series instance bound to your app.
+                             It is integral from being able to ingest data into Time Series as well as
+                             query for the data stored in Time Series.
+-Time Series Ingest URI: URL that is used for websocket river for ingesting data into Time Series.
+-Time Series Query URI: URL that is used as the REST URL for querying the Time Series database.
+
+TIMESERIES_ZONE_ID=$(cf env $TEMP_APP | grep -m 1 zone-http-header-value | sed 's/"zone-http-header-value": "//' | sed 's/",//' | tr -d '[[:space:]]')
+TIMESERIES_INGEST_URI=$(cf env $TEMP_APP | grep -m 1 uri | sed 's/"uri": "//' | sed 's/",//' | tr -d '[[:space:]]')
+TIMESERIES_QUERY_URI=$(cf env $TEMP_APP | grep -m 2 uri | grep https | sed 's/"uri": "//' | sed 's/",//' | tr -d '[[:space:]]')
+
+In the case of your application, these variables are:
+-Time Series Predix Zone ID: $TIMESERIES_ZONE_ID
+-Time Series Ingest URI: $TIMESERIES_INGEST_URI
+-Time Series Query URI: $TIMESERIES_QUERY_URI
+
+You have now completed the introduction section on the Time Series service.  Future tutorials will go
+in-depth into this service, so don't fret if you are unsure on all the ways to use it.
+
+Next up, is the Predix Asset service.
+
+The Predix Asset service provides REST APIs to support asset modeling. The Asset service enables application
+developers to create and store assets that define asset properties as well as relationships between assets
+and other modeling elements.
+
+For example, an application developer can create an asset model that describes the logical component
+structure of all water pumps in an organization, and then create instances of that model to represent each
+pump in an organization. The Asset service consists of an API layer, a query engine, and a graph database.
+
+Let's now create the Predix Asset service instance in our Predix Space.
+
+cf cs $ASSET_SERVICE_NAME $ASSET_SERVICE_PLAN $ASSET_INSTANCE_NAME -c "{\"trustedIssuerIds\":[\"$trustedIssuerID\"]}"
+
+Just as when we created the UAA and Time Series services, we used "cf cs ...".  The parameters for Predix Asset are:
+Service Name: $ASSET_SERVICE_NAME
+Service Plan: $ASSET_SERVICE_PLAN
+Service Unique Instance Name: $ASSET_INSTANCE_NAME
+
+Now let's bind the $TEMP_APP to the $ASSET_INSTANCE_NAME
+
+cf bs $TEMP_APP $ASSET_INSTANCE_NAME
+
+Congrats! You now have a Asset service instance bound to your app. Let's make sure that it
+is included in the app's environment variables.
+
+cf env $TEMP_APP
+
+You should now see "predix-asset" listed as one of your "VCAP_SERVICES".
+
+An important environment variable from the Asset environment variables is such:
+-Asset Predix Zone ID: This uniquely identifies your Asset instance bound to your app.
+                       It is integral from being able to post data into Asset as well as
+                       query for the data stored in Asset.
+
+ASSET_ZONE_ID=$(cf env $TEMP_APP | grep -m 1 http-header-value | sed 's/"http-header-value": "//' | sed 's/",//' | tr -d '[[:space:]]')
+
+In the case of your application, this variable is:
+-Asset Predix Zone ID: $ASSET_ZONE_ID
+
+You have now completed the introduction section on the Asset service.  Future tutorials will go
+in-depth into this service, so don't fret if you are unsure of how to use this service.
+
+This now completes our section on creating and binding the services for our Predix Application. Congrats!
+
+This next portion is setting up the UAA service to contain the correct permissions to authenticate and
+communicate with the Asset and Time Series service.
+
+NOTE: Just as for each command we ran above for Cloud Foundry began with "cf", all the commands that
+      communicates with the UAA service begins with "uaac".
+
+First, let's log into our UAA service.  Remember the UAA environment variable UAA URI?  This is the URL
+that we target to UAA services server instance, similar to the API endpoint needed to log into Cloud Foundry.
+
+uaac target $uaaURL
+
+Now we have targeted the UAA service instance ($UAA_INSTANCE_NAME), this allows us to explore this
+UAA instance, create new clients, and manage existing clients.
+
+But...What's a client?
+
+Clients are mainly the lowest level access points to the UAA service that have a defined scope.
+
+What is a scope?
+
+Essentially, it is a privilege for the client.  Each service in Cloud Foundry has various scopes that the
+client must have to perform certain functions.  For example, the Time Series services has a scope that
+is for ingesting and a scope that is for querying.  You will see in a bit how to set scopes for clients.
+
+Now, let's get a token for your UAA's admin in client which we set when creating the service instance.
+
+uaac token client get admin -s $UAA_ADMIN_SECRET #Give UAA context so it knows the admin credentials it has to run commands under
+
+Use this command to authenticate and obtain an access token for the admin client from the UAA server.
+
+To view what the token you just retreived looks like, we can use the "uaac context" command.
+
+uuac context
+
+The long access token that you see is the oAuth token that you could use for the admin client as your
+Authorization header in a REST call.  If you're not familiar with REST calls, don't worry, we will explain
+this in-depth in future tutorials.
+
+The scopes that you see set are the privileges the admin client has currently.
+
+***WE NEED TO EXPLAIN THE IMPORTANT SCOPES HERE****WHAT DO THEY GIVE PERMISSION TO?****
+
+
+
+uaac client add $TIMESERIES_CLIENT_ID --authorized_grant_types "client_credentials"  --name $TIMESERIES_CLIENT_ID -s $TIMESERIES_CLIENT_SECRET
+
+Use this command to authenticate and obtain an access token for the admin client from the UAA server.
+
+
+#Update scopes for the client ID with zone ID of TimeSeries Instance
+uaac client update $TIMESERIES_CLIENT_ID --authorities "timeseries.zones.$TIMESERIES_ZONE_ID.user,timeseries.zones.$TIMESERIES_ZONE_ID.query,timeseries.zones.$TIMESERIES_ZONE_ID.ingest" --scope "timeseries.zones.$TIMESERIES_ZONE_ID.user,timeseries.zones.$TIMESERIES_ZONE_ID.querytimeseries.zones.$TIMESERIES_ZONE_ID.ingest"
+
+#Create client ID for posting and querying Asset"
+uaac client add $ASSET_CLIENT_ID --authorized_grant_types "client_credentials" --name $ASSET_CLIENT_ID -s $ASSET_CLIENT_SECRET
+
+#Update scopes for the client ID with zone ID of Asset Instance
+#uaac client update $ASSET_CLIENT_ID --authorities "$ASSET_SERVICE_NAME.zones.$ASSET_ZONE_ID.user" --scope "$ASSET_SERVICE_NAME.zones.$ASSET_ZONE_ID.user"
+uaac client update $ASSET_CLIENT_ID --authorities "$ASSET_SERVICE_NAME.zones.$ASSET_ZONE_ID.user uaa.none" --scope "$ASSET_SERVICE_NAME.zones.$ASSET_ZONE_ID.user uaa.none"
+
+To recap, the following steps should be followed when setting up your application:
+1) Create instances of your Predix services
+2) Bind the service instances to your Predix Application
+3) Set up

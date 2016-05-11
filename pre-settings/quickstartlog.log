@@ -1,0 +1,1411 @@
+
+2016-05-09 16:23:55:  ---  # quickstart.sh script started! #
+2016-05-09 16:23:59:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 16:24:01:  ---  Successfully logged into CloudFoundry
+2016-05-09 16:24:30:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 16:24:31:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 16:24:31:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 16:24:31:  ---  Got UAA admin token
+2016-05-09 16:24:31:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 16:24:32:  --- ERROR: The request failed to successfully create or reuse the Client ID
+2016-05-09 16:24:32:  --- Running the clean up script... The request failed to successfully create or reuse the Client ID
+2016-05-09 16:24:32:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 16:24:39:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 16:24:39:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:24:46:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 16:24:46:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:24:52:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 16:24:53:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:24:53:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 16:25:00:  ---  Successfully deleted "test-app"
+2016-05-09 16:25:02:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 16:25:03:  ---  Successfully deleted "event-service-redis"
+2016-05-09 16:25:05:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 16:25:05:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 16:29:41:  ---  # quickstart.sh script started! #
+2016-05-09 16:29:44:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 16:29:46:  ---  Successfully logged into CloudFoundry
+2016-05-09 16:29:51:  ---  UAA Service instance successfully created!
+2016-05-09 16:30:05:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 16:30:11:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 16:30:12:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 16:30:12:  ---  UAA URL copied from enviromental variables!
+2016-05-09 16:30:14:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 16:30:15:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 16:30:15:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 16:30:16:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 16:30:16:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 16:30:18:  ---  Predix Asset Service instance successfully created!
+2016-05-09 16:30:19:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 16:30:19:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 16:30:19:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 16:30:20:  ---  Got UAA admin token
+2016-05-09 16:30:20:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 16:30:20:  --- ERROR: The request failed to successfully create or reuse the Client ID
+2016-05-09 16:30:20:  --- Running the clean up script... The request failed to successfully create or reuse the Client ID
+2016-05-09 16:30:20:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 16:30:26:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 16:30:27:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:30:33:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 16:30:33:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:30:40:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 16:30:40:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:30:40:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 16:30:47:  ---  Successfully deleted "test-app"
+2016-05-09 16:30:50:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 16:30:51:  ---  Successfully deleted "event-service-redis"
+2016-05-09 16:30:53:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 16:30:53:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 16:43:28:  ---  # quickstart.sh script started! #
+2016-05-09 16:43:31:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 16:43:34:  ---  Successfully logged into CloudFoundry
+2016-05-09 16:43:36:  ---  UAA Service instance successfully created!
+2016-05-09 16:43:45:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 16:43:47:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 16:43:47:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 16:43:48:  ---  UAA URL copied from enviromental variables!
+2016-05-09 16:43:49:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 16:43:50:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 16:43:50:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 16:43:51:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 16:43:51:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 16:43:53:  ---  Predix Asset Service instance successfully created!
+2016-05-09 16:43:54:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 16:43:54:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 16:43:54:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 16:43:55:  ---  Got UAA admin token
+2016-05-09 16:43:55:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 16:43:55:  --- ERROR: Failed to make request to create UAA User to "https://f260686a-e769-4074-a95c-bc0a452e161d.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 16:43:55:  --- Running the clean up script... Failed to make request to create UAA User to "https://f260686a-e769-4074-a95c-bc0a452e161d.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 16:43:55:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 16:44:02:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 16:44:02:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:44:08:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 16:44:09:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:44:15:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 16:44:15:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 16:44:15:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 16:44:21:  ---  Successfully deleted "test-app"
+2016-05-09 16:44:22:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 16:44:23:  ---  Successfully deleted "event-service-redis"
+2016-05-09 16:44:24:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 16:44:24:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 16:59:24:  ---  # quickstart.sh script started! #
+2016-05-09 16:59:26:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 16:59:28:  ---  Successfully logged into CloudFoundry
+2016-05-09 16:59:30:  ---  UAA Service instance successfully created!
+2016-05-09 16:59:44:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 16:59:45:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 16:59:46:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 16:59:46:  ---  UAA URL copied from enviromental variables!
+2016-05-09 16:59:47:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 16:59:49:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 16:59:49:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 16:59:50:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 16:59:50:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 16:59:52:  ---  Predix Asset Service instance successfully created!
+2016-05-09 16:59:53:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 16:59:53:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 16:59:54:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 16:59:54:  ---  Got UAA admin token
+2016-05-09 16:59:54:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 16:59:54:  --- ERROR: Failed to make request to create UAA User to "https://dcdc3378-ecff-40d5-abc2-26b82b28ca4a.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 16:59:54:  --- Running the clean up script... Failed to make request to create UAA User to "https://dcdc3378-ecff-40d5-abc2-26b82b28ca4a.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 16:59:55:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 17:00:01:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 17:00:01:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:00:08:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 17:00:08:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:00:14:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 17:00:14:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:00:15:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 17:00:21:  ---  Successfully deleted "test-app"
+2016-05-09 17:00:22:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 17:00:23:  ---  Successfully deleted "event-service-redis"
+2016-05-09 17:00:24:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 17:00:24:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 17:16:17:  ---  # quickstart.sh script started! #
+2016-05-09 17:16:20:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 17:16:22:  ---  Successfully logged into CloudFoundry
+2016-05-09 17:16:24:  ---  UAA Service instance successfully created!
+2016-05-09 17:16:33:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 17:16:36:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 17:16:37:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 17:16:37:  ---  UAA URL copied from enviromental variables!
+2016-05-09 17:16:39:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 17:16:39:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 17:16:40:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 17:16:41:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 17:16:41:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 17:16:42:  ---  Predix Asset Service instance successfully created!
+2016-05-09 17:16:44:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 17:16:45:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 17:16:45:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 17:16:45:  ---  Got UAA admin token
+2016-05-09 17:16:45:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 17:16:46:  --- ERROR: Failed to make request to create UAA User to "https://ca217005-e2e6-47f3-954d-6002508efedf.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 17:16:46:  --- Running the clean up script... Failed to make request to create UAA User to "https://ca217005-e2e6-47f3-954d-6002508efedf.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 17:16:46:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 17:16:47:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 17:16:48:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:16:49:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 17:16:49:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:16:55:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 17:16:56:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:16:56:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 17:17:02:  ---  Successfully deleted "test-app"
+2016-05-09 17:17:03:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 17:17:04:  ---  Successfully deleted "event-service-redis"
+2016-05-09 17:17:05:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 17:17:05:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 17:17:59:  ---  # quickstart.sh script started! #
+2016-05-09 17:18:05:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 17:18:07:  ---  Successfully logged into CloudFoundry
+2016-05-09 17:18:09:  ---  UAA Service instance successfully created!
+2016-05-09 17:18:17:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 17:18:18:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 17:18:18:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 17:18:19:  ---  UAA URL copied from enviromental variables!
+2016-05-09 17:18:20:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 17:18:21:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 17:18:22:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 17:18:22:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 17:18:23:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 17:18:24:  ---  Predix Asset Service instance successfully created!
+2016-05-09 17:18:25:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 17:18:25:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 17:18:25:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 17:18:26:  ---  Got UAA admin token
+2016-05-09 17:18:26:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 17:18:26:  --- ERROR: Failed to make request to create UAA User to "https://4d584eb6-1637-49b2-9fbf-c30cd7a73ee2.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 17:18:26:  --- Running the clean up script... Failed to make request to create UAA User to "https://4d584eb6-1637-49b2-9fbf-c30cd7a73ee2.predix-uaa.run.aws-usw02-pr.ice.predix.io"
+2016-05-09 17:18:26:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 17:18:33:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 17:18:33:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:18:39:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 17:18:40:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:18:46:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 17:18:46:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 17:18:46:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 17:18:53:  ---  Successfully deleted "test-app"
+2016-05-09 17:18:54:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 17:18:55:  ---  Successfully deleted "event-service-redis"
+2016-05-09 17:18:56:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 17:18:56:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 17:25:27:  ---  # quickstart.sh script started! #
+2016-05-09 17:25:29:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 17:25:36:  ---  Successfully logged into CloudFoundry
+2016-05-09 17:25:38:  ---  UAA Service instance successfully created!
+2016-05-09 17:25:47:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 17:25:48:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 17:25:49:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 17:25:49:  ---  UAA URL copied from enviromental variables!
+2016-05-09 17:25:51:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 17:25:52:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 17:25:53:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 17:25:53:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 17:25:54:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 17:25:56:  ---  Predix Asset Service instance successfully created!
+2016-05-09 17:25:57:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 17:25:57:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 17:25:57:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 17:25:58:  ---  Got UAA admin token
+2016-05-09 17:25:58:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 17:25:59:  ---  Successfully created new Client ID: "ui_client1"
+2016-05-09 17:25:59:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 17:26:00:  ---  Got UAA admin token
+2016-05-09 17:26:00:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 17:26:01:  ---  Successfully created new UAA User: "hacker1"
+2016-05-09 17:26:02:  ---  assetURI copied from environment variables!
+2016-05-09 17:26:02:  ---  assetPostBody ok!
+2016-05-09 18:03:03:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:03:10:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 18:03:10:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:03:13:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 18:03:13:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:03:19:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 18:03:19:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:03:20:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:03:26:  ---  Successfully deleted "test-app"
+2016-05-09 18:03:26:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 18:03:26:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:03:27:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 18:03:27:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:03:28:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 18:03:28:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:03:28:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:03:53:  ---  # quickstart.sh script started! #
+2016-05-09 18:03:56:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 18:03:57:  ---  Successfully logged into CloudFoundry
+2016-05-09 18:03:58:  ---  UAA Service instance successfully created!
+2016-05-09 18:05:22:  --- ERROR: There was an error pushing the TEMP_APP to CloudFoundry...
+2016-05-09 18:05:22:  --- Running the clean up script... There was an error pushing the TEMP_APP to CloudFoundry...
+2016-05-09 18:05:22:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:05:22:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 18:05:23:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:05:23:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 18:05:24:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:05:24:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 18:05:25:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:05:25:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:05:31:  ---  Successfully deleted "test-app"
+2016-05-09 18:05:31:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 18:05:32:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:05:32:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 18:05:32:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:05:33:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 18:05:33:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:05:33:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:07:32:  ---  # quickstart.sh script started! #
+2016-05-09 18:07:35:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 18:07:41:  ---  Successfully logged into CloudFoundry
+2016-05-09 18:07:42:  ---  UAA Service instance successfully created!
+2016-05-09 18:09:05:  --- ERROR: There was an error pushing the TEMP_APP to CloudFoundry...
+2016-05-09 18:09:05:  --- Running the clean up script... There was an error pushing the TEMP_APP to CloudFoundry...
+2016-05-09 18:09:05:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:09:06:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 18:09:06:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:09:07:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 18:09:07:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:09:08:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 18:09:08:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:09:09:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:09:15:  ---  Successfully deleted "test-app"
+2016-05-09 18:09:15:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 18:09:15:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:09:16:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 18:09:16:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:09:17:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 18:09:17:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:09:17:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:10:04:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:10:04:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:10:05:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:10:05:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:10:06:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:10:06:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:10:06:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:10:06:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:10:07:  ---  Successfully deleted "test-app"
+2016-05-09 18:10:08:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:10:09:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:10:10:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:10:10:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:10:12:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:10:12:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:10:12:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:10:13:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:10:13:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:10:13:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:10:13:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:10:14:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:10:14:  ---  Successfully deleted "test-app"
+2016-05-09 18:10:14:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:10:15:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:10:15:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:10:15:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:10:41:  ---  # quickstart.sh script started! #
+2016-05-09 18:10:46:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 18:10:48:  ---  Successfully logged into CloudFoundry
+2016-05-09 18:10:53:  ---  UAA Service instance successfully created!
+2016-05-09 18:12:12:  --- ERROR: There was an error pushing the TEMP_APP to CloudFoundry...
+2016-05-09 18:12:12:  --- Running the clean up script... There was an error pushing the TEMP_APP to CloudFoundry...
+2016-05-09 18:12:12:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:12:12:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:12:13:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:12:13:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:12:14:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:12:14:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 18:12:15:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:12:15:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:12:16:  ---  Successfully deleted "test-app"
+2016-05-09 18:12:17:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:12:17:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:12:17:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:12:17:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:15:17:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:15:18:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:15:18:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:15:19:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:15:19:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:15:19:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:15:19:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:15:20:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:15:20:  ---  Successfully deleted "test-app"
+2016-05-09 18:15:20:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:15:20:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:15:21:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:15:21:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:15:26:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 18:15:26:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:15:26:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:15:26:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:15:27:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:15:27:  ---  Failed to delete. test-app might not exist
+2016-05-09 18:15:27:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 18:15:27:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 18:15:28:  ---  Successfully deleted "test-app"
+2016-05-09 18:15:28:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 18:15:28:  ---  Successfully deleted "event-service-redis"
+2016-05-09 18:15:29:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 18:15:29:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 18:15:37:  ---  # quickstart.sh script started! #
+2016-05-09 18:15:41:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 18:15:43:  ---  Successfully logged into CloudFoundry
+2016-05-09 18:15:49:  ---  UAA Service instance successfully created!
+2016-05-09 18:16:03:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 18:16:06:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 18:16:07:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 18:16:07:  ---  UAA URL copied from enviromental variables!
+2016-05-09 18:16:09:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 18:16:10:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 18:16:10:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 18:16:11:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 18:16:11:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 18:16:13:  ---  Predix Asset Service instance successfully created!
+2016-05-09 18:16:14:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 18:16:14:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 18:16:15:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 18:16:15:  ---  Got UAA admin token
+2016-05-09 18:16:15:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 18:16:16:  ---  Successfully created new Client ID: "ui_client1"
+2016-05-09 18:16:16:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 18:16:16:  ---  Got UAA admin token
+2016-05-09 18:16:16:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 18:16:17:  ---  Successfully created new UAA User: "hacker1"
+2016-05-09 18:16:17:  ---  assetURI copied from environment variables!
+2016-05-09 18:16:17:  ---  assetPostBody ok!
+2016-05-09 22:36:32:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 22:36:40:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 22:36:41:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 22:36:52:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 22:36:53:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 22:36:59:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 22:37:00:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 22:37:01:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 22:37:05:  ---  Successfully deleted "test-app"
+2016-05-09 22:37:07:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 22:37:08:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 22:37:10:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 22:37:11:  ---  Successfully deleted "event-service-redis"
+2016-05-09 22:37:14:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 22:37:15:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 22:37:15:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 22:37:16:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 22:37:17:  ---  Failed to delete. test-app might not exist
+2016-05-09 22:37:18:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 22:37:20:  ---  Failed to delete. test-app might not exist
+2016-05-09 22:37:21:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 22:37:22:  ---  Failed to delete. test-app might not exist
+2016-05-09 22:37:23:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 22:37:24:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 22:37:25:  ---  Successfully deleted "test-app"
+2016-05-09 22:37:28:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 22:37:29:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 22:37:31:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 22:37:32:  ---  Successfully deleted "event-service-redis"
+2016-05-09 22:37:35:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 22:37:36:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 22:37:36:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 22:37:38:  ---  # quickstart.sh script started! #
+2016-05-09 22:37:42:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 22:37:48:  ---  Successfully logged into CloudFoundry
+2016-05-09 22:37:54:  ---  UAA Service instance successfully created!
+2016-05-09 22:38:12:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 22:38:16:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 22:38:19:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 22:38:21:  ---  UAA URL copied from enviromental variables!
+2016-05-09 22:38:27:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 22:38:31:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 22:38:33:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 22:38:36:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 22:38:38:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 22:38:43:  ---  Predix Asset Service instance successfully created!
+2016-05-09 22:38:47:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 22:38:50:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 22:38:50:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 22:38:52:  ---  Got UAA admin token
+2016-05-09 22:38:52:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 22:38:53:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-09 22:38:53:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 22:38:54:  ---  Got UAA admin token
+2016-05-09 22:38:54:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 22:38:56:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-09 22:38:58:  ---  assetURI copied from environment variables!
+2016-05-09 22:38:58:  ---  assetPostBody ok!
+2016-05-09 23:09:55:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:10:01:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 23:10:03:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:10:08:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 23:10:09:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:10:20:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 23:10:21:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:10:22:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:10:26:  ---  Successfully deleted "test-app"
+2016-05-09 23:10:28:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:10:30:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:10:32:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:10:33:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:10:35:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:10:36:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:10:36:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:10:45:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:10:47:  ---  Failed to delete. test-app might not exist
+2016-05-09 23:10:48:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:10:49:  ---  Failed to delete. test-app might not exist
+2016-05-09 23:10:50:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:10:51:  ---  Failed to delete. test-app might not exist
+2016-05-09 23:10:52:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:10:53:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:10:54:  ---  Successfully deleted "test-app"
+2016-05-09 23:10:57:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:10:58:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:11:00:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:11:01:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:11:03:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:11:04:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:11:04:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:11:06:  ---  # quickstart.sh script started! #
+2016-05-09 23:11:10:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 23:11:16:  ---  Successfully logged into CloudFoundry
+2016-05-09 23:11:21:  ---  UAA Service instance successfully created!
+2016-05-09 23:11:39:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 23:11:44:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 23:11:46:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 23:11:48:  ---  UAA URL copied from enviromental variables!
+2016-05-09 23:11:53:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 23:11:58:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 23:12:00:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 23:12:02:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 23:12:05:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 23:12:10:  ---  Predix Asset Service instance successfully created!
+2016-05-09 23:12:14:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 23:12:17:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 23:12:17:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:12:18:  ---  Got UAA admin token
+2016-05-09 23:12:18:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 23:12:20:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-09 23:12:20:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:12:21:  ---  Got UAA admin token
+2016-05-09 23:12:21:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 23:35:14:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:35:20:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 23:35:21:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:35:26:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 23:35:27:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:35:32:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 23:35:33:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:35:34:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:35:38:  ---  Successfully deleted "test-app"
+2016-05-09 23:35:41:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:35:42:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:35:44:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:35:45:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:35:48:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:35:49:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:35:49:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:36:08:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:36:09:  ---  Failed to delete. test-app might not exist
+2016-05-09 23:36:10:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:36:11:  ---  Failed to delete. test-app might not exist
+2016-05-09 23:36:12:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:36:13:  ---  Failed to delete. test-app might not exist
+2016-05-09 23:36:14:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:36:16:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:36:17:  ---  Successfully deleted "test-app"
+2016-05-09 23:36:19:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:36:20:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:36:22:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:36:23:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:36:25:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:36:26:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:36:26:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:36:45:  ---  # quickstart.sh script started! #
+2016-05-09 23:36:49:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 23:36:55:  ---  Successfully logged into CloudFoundry
+2016-05-09 23:37:00:  ---  UAA Service instance successfully created!
+2016-05-09 23:37:19:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 23:37:23:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 23:37:25:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 23:37:27:  ---  UAA URL copied from enviromental variables!
+2016-05-09 23:37:33:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 23:37:38:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 23:37:40:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 23:37:42:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 23:37:44:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 23:37:49:  ---  Predix Asset Service instance successfully created!
+2016-05-09 23:37:54:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 23:37:56:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 23:37:56:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:37:58:  ---  Got UAA admin token
+2016-05-09 23:37:58:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 23:37:59:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-09 23:37:59:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:38:00:  ---  Got UAA admin token
+2016-05-09 23:38:00:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 23:39:32:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:39:44:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 23:39:45:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:39:51:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 23:39:52:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:40:03:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 23:40:04:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:40:05:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:40:15:  ---  Successfully deleted "test-app"
+2016-05-09 23:40:17:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:40:19:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:40:21:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:40:22:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:40:24:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:40:25:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:40:25:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:41:10:  ---  # quickstart.sh script started! #
+2016-05-09 23:41:13:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 23:41:19:  ---  Successfully logged into CloudFoundry
+2016-05-09 23:41:24:  ---  UAA Service instance successfully created!
+2016-05-09 23:41:42:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 23:41:47:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 23:41:49:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 23:41:51:  ---  UAA URL copied from enviromental variables!
+2016-05-09 23:41:57:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 23:42:01:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 23:42:03:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 23:42:05:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 23:42:08:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 23:42:13:  ---  Predix Asset Service instance successfully created!
+2016-05-09 23:42:17:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 23:42:20:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 23:42:20:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:42:21:  ---  Got UAA admin token
+2016-05-09 23:42:21:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 23:42:22:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-09 23:42:22:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:42:24:  ---  Got UAA admin token
+2016-05-09 23:42:24:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 23:44:14:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:44:20:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 23:44:21:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:44:26:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 23:44:27:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:44:39:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 23:44:40:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:44:41:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:44:45:  ---  Successfully deleted "test-app"
+2016-05-09 23:44:47:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:44:48:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:44:50:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:44:51:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:44:53:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:44:54:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:44:54:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:45:14:  ---  # quickstart.sh script started! #
+2016-05-09 23:45:18:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 23:45:24:  ---  Successfully logged into CloudFoundry
+2016-05-09 23:45:30:  ---  UAA Service instance successfully created!
+2016-05-09 23:45:54:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 23:45:59:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 23:46:01:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 23:46:03:  ---  UAA URL copied from enviromental variables!
+2016-05-09 23:46:08:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 23:46:13:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 23:46:15:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 23:46:17:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 23:46:20:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 23:46:25:  ---  Predix Asset Service instance successfully created!
+2016-05-09 23:46:30:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 23:46:32:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 23:46:32:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:46:33:  ---  Got UAA admin token
+2016-05-09 23:46:33:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 23:46:35:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-09 23:46:35:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:46:36:  ---  Got UAA admin token
+2016-05-09 23:46:36:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 23:46:39:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-09 23:46:41:  ---  assetURI copied from environment variables!
+2016-05-09 23:46:41:  ---  assetPostBody ok!
+2016-05-09 23:51:36:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:51:42:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 23:51:43:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:51:55:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-09 23:51:56:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:52:07:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-09 23:52:08:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-09 23:52:09:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-09 23:52:13:  ---  Successfully deleted "test-app"
+2016-05-09 23:52:15:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-09 23:52:16:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-09 23:52:19:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-09 23:52:20:  ---  Successfully deleted "event-service-redis"
+2016-05-09 23:52:22:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-09 23:52:23:  ---  Successfully deleted "ie-traffic-service"
+2016-05-09 23:52:23:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-09 23:52:25:  ---  # quickstart.sh script started! #
+2016-05-09 23:52:29:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-09 23:52:34:  ---  Successfully logged into CloudFoundry
+2016-05-09 23:52:40:  ---  UAA Service instance successfully created!
+2016-05-09 23:52:58:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-09 23:53:03:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-09 23:53:05:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-09 23:53:07:  ---  UAA URL copied from enviromental variables!
+2016-05-09 23:53:12:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-09 23:53:17:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-09 23:53:19:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-09 23:53:21:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-09 23:53:24:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-09 23:53:29:  ---  Predix Asset Service instance successfully created!
+2016-05-09 23:53:33:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-09 23:53:35:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-09 23:53:35:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:53:37:  ---  Got UAA admin token
+2016-05-09 23:53:37:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-09 23:53:38:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-09 23:53:38:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-09 23:53:40:  ---  Got UAA admin token
+2016-05-09 23:53:40:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-09 23:53:43:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-09 23:53:45:  ---  assetURI copied from environment variables!
+2016-05-09 23:53:45:  ---  assetPostBody ok!
+2016-05-09 23:59:33:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-09 23:59:39:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-09 23:59:40:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 00:01:59:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 00:02:00:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 00:02:05:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 00:02:07:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 00:02:08:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 00:02:12:  ---  Successfully deleted "test-app"
+2016-05-10 00:02:14:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 00:02:15:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 00:02:17:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 00:02:18:  ---  Successfully deleted "event-service-redis"
+2016-05-10 00:02:21:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 00:02:22:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 00:02:22:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 00:02:40:  ---  # quickstart.sh script started! #
+2016-05-10 00:02:43:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 00:02:49:  ---  Successfully logged into CloudFoundry
+2016-05-10 00:02:54:  ---  UAA Service instance successfully created!
+2016-05-10 00:03:13:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 00:03:17:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 00:03:19:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 00:03:21:  ---  UAA URL copied from enviromental variables!
+2016-05-10 00:03:26:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 00:03:31:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 00:03:34:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 00:03:36:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 00:03:38:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 00:03:43:  ---  Predix Asset Service instance successfully created!
+2016-05-10 00:03:47:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 00:03:50:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 00:03:50:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 00:03:51:  ---  Got UAA admin token
+2016-05-10 00:03:51:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 00:03:53:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 00:03:53:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 00:03:54:  ---  Got UAA admin token
+2016-05-10 00:03:54:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 12:01:16:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 12:01:22:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 12:01:22:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 12:01:23:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 12:01:24:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 12:01:30:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 12:01:30:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 12:01:31:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 12:01:37:  ---  Successfully deleted "test-app"
+2016-05-10 12:01:37:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 12:01:38:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 12:01:38:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 12:01:39:  ---  Successfully deleted "event-service-redis"
+2016-05-10 12:01:39:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 12:01:39:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 12:01:40:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 12:01:44:  ---  # quickstart.sh script started! #
+2016-05-10 12:01:48:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 12:01:49:  ---  Successfully logged into CloudFoundry
+2016-05-10 12:01:50:  ---  UAA Service instance successfully created!
+2016-05-10 12:01:58:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 12:01:59:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 12:02:00:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 12:02:00:  ---  UAA URL copied from enviromental variables!
+2016-05-10 12:02:02:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 12:02:02:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 12:02:03:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 12:02:03:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 12:02:04:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 12:02:05:  ---  Predix Asset Service instance successfully created!
+2016-05-10 12:02:06:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 12:02:07:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 12:02:07:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 12:02:07:  ---  Got UAA admin token
+2016-05-10 12:02:07:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 12:02:08:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 12:02:08:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 12:02:08:  ---  Got UAA admin token
+2016-05-10 12:02:08:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 13:07:58:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 13:08:00:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 13:08:00:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:08:07:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 13:08:07:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:08:14:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 13:08:14:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:08:14:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 13:08:20:  ---  Successfully deleted "test-app"
+2016-05-10 13:08:21:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 13:08:21:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 13:08:21:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 13:08:21:  ---  Successfully deleted "event-service-redis"
+2016-05-10 13:08:22:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 13:08:22:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 13:08:22:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 13:08:27:  ---  # quickstart.sh script started! #
+2016-05-10 13:08:30:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 13:08:32:  ---  Successfully logged into CloudFoundry
+2016-05-10 13:08:33:  ---  UAA Service instance successfully created!
+2016-05-10 13:08:46:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 13:08:47:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 13:08:48:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 13:08:48:  ---  UAA URL copied from enviromental variables!
+2016-05-10 13:08:49:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 13:08:50:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 13:08:51:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 13:08:51:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 13:08:52:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 13:08:53:  ---  Predix Asset Service instance successfully created!
+2016-05-10 13:08:55:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 13:08:55:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 13:08:55:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:08:55:  ---  Got UAA admin token
+2016-05-10 13:08:55:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 13:08:56:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 13:08:56:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:08:56:  ---  Got UAA admin token
+2016-05-10 13:08:56:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 13:30:37:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 13:30:44:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 13:30:45:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:32:27 : --- Ctrl-C caught...exiting script
+2016-05-10 13:32:28:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 13:32:28:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 13:32:29:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:32:35:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 13:32:35:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:32:42:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 13:32:42:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:32:43:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 13:32:50:  ---  Successfully deleted "test-app"
+2016-05-10 13:32:51:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 13:32:51:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 13:32:51:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 13:32:52:  ---  Successfully deleted "event-service-redis"
+2016-05-10 13:32:52:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 13:32:52:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 13:32:52:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 13:33:23:  ---  # quickstart.sh script started! #
+2016-05-10 13:33:26:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 13:33:27:  ---  Successfully logged into CloudFoundry
+2016-05-10 13:33:28:  ---  UAA Service instance successfully created!
+2016-05-10 13:33:42:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 13:33:43:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 13:33:44:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 13:33:45:  ---  UAA URL copied from enviromental variables!
+2016-05-10 13:33:46:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 13:33:47:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 13:33:47:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 13:33:48:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 13:33:49:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 13:33:50:  ---  Predix Asset Service instance successfully created!
+2016-05-10 13:33:51:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 13:33:51:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 13:33:51:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:33:52:  ---  Got UAA admin token
+2016-05-10 13:33:52:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 13:33:52:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 13:33:52:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:33:52:  ---  Got UAA admin token
+2016-05-10 13:33:52:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 13:33:54:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 13:33:55:  ---  assetURI copied from environment variables!
+2016-05-10 13:33:55:  ---  assetPostBody ok!
+2016-05-10 13:37:44:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 13:37:53:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 13:37:53:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:37:59:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 13:37:59:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:38:06:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 13:38:06:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:38:06:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 13:38:12:  ---  Successfully deleted "test-app"
+2016-05-10 13:38:13:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 13:38:13:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 13:38:14:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 13:38:14:  ---  Successfully deleted "event-service-redis"
+2016-05-10 13:38:14:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 13:38:14:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 13:38:15:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 13:38:31:  ---  # quickstart.sh script started! #
+2016-05-10 13:38:33:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 13:38:34:  ---  Successfully logged into CloudFoundry
+2016-05-10 13:38:35:  ---  UAA Service instance successfully created!
+2016-05-10 13:38:49:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 13:38:50:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 13:38:51:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 13:38:51:  ---  UAA URL copied from enviromental variables!
+2016-05-10 13:38:53:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 13:38:55:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 13:38:55:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 13:38:55:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 13:38:56:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 13:38:57:  ---  Predix Asset Service instance successfully created!
+2016-05-10 13:39:58:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 13:39:59:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 13:39:59:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:39:59:  ---  Got UAA admin token
+2016-05-10 13:39:59:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 13:40:00:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 13:40:00:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:40:00:  ---  Got UAA admin token
+2016-05-10 13:40:00:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 13:40:02:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 13:40:02:  ---  assetURI copied from environment variables!
+2016-05-10 13:40:02:  ---  assetPostBody ok!
+2016-05-10 13:58:46:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 13:58:54:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 13:58:54:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:59:01:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 13:59:02:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:59:09:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 13:59:10:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 13:59:10:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 13:59:11:  ---  Successfully deleted "test-app"
+2016-05-10 13:59:12:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 13:59:13:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 13:59:14:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 13:59:14:  ---  Successfully deleted "event-service-redis"
+2016-05-10 13:59:15:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 13:59:15:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 13:59:15:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 13:59:17:  ---  # quickstart.sh script started! #
+2016-05-10 13:59:21:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 13:59:23:  ---  Successfully logged into CloudFoundry
+2016-05-10 13:59:25:  ---  UAA Service instance successfully created!
+2016-05-10 13:59:36:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 13:59:39:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 13:59:40:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 13:59:41:  ---  UAA URL copied from enviromental variables!
+2016-05-10 13:59:43:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 13:59:44:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 13:59:45:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 13:59:46:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 13:59:47:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 13:59:48:  ---  Predix Asset Service instance successfully created!
+2016-05-10 13:59:50:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 13:59:51:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 13:59:51:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:59:51:  ---  Got UAA admin token
+2016-05-10 13:59:51:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 13:59:52:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 13:59:52:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 13:59:53:  ---  Got UAA admin token
+2016-05-10 13:59:53:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 14:01:31:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 14:01:38:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 14:01:39:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:01:40:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 14:01:40:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:01:47:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 14:01:48:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:01:48:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 14:01:55:  ---  Successfully deleted "test-app"
+2016-05-10 14:01:55:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 14:01:56:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 14:01:56:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 14:01:57:  ---  Successfully deleted "event-service-redis"
+2016-05-10 14:01:57:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 14:01:58:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 14:01:58:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 14:02:03:  ---  # quickstart.sh script started! #
+2016-05-10 14:02:06:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 14:02:07:  ---  Successfully logged into CloudFoundry
+2016-05-10 14:02:08:  ---  UAA Service instance successfully created!
+2016-05-10 14:02:17:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 14:02:19:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 14:02:19:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 14:02:20:  ---  UAA URL copied from enviromental variables!
+2016-05-10 14:02:21:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 14:02:22:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 14:02:22:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 14:02:23:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 14:02:23:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 14:02:24:  ---  Predix Asset Service instance successfully created!
+2016-05-10 14:02:25:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 14:02:26:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 14:02:26:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:02:26:  ---  Got UAA admin token
+2016-05-10 14:02:26:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 14:02:27:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 14:02:27:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:02:27:  ---  Got UAA admin token
+2016-05-10 14:02:27:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 14:25:16:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 14:25:23:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 14:25:23:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:25:30:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 14:25:30:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:25:37:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 14:25:37:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:25:37:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 14:25:43:  ---  Successfully deleted "test-app"
+2016-05-10 14:25:44:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 14:25:44:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 14:25:45:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 14:25:45:  ---  Successfully deleted "event-service-redis"
+2016-05-10 14:25:46:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 14:25:46:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 14:25:46:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 14:25:49:  ---  # quickstart.sh script started! #
+2016-05-10 14:25:53:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 14:25:55:  ---  Successfully logged into CloudFoundry
+2016-05-10 14:25:56:  ---  UAA Service instance successfully created!
+2016-05-10 14:26:10:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 14:26:12:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 14:26:13:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 14:26:13:  ---  UAA URL copied from enviromental variables!
+2016-05-10 14:26:14:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 14:26:15:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 14:26:16:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 14:26:16:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 14:26:17:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 14:26:18:  ---  Predix Asset Service instance successfully created!
+2016-05-10 14:26:19:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 14:26:20:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 14:26:20:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:26:20:  ---  Got UAA admin token
+2016-05-10 14:26:20:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 14:26:20:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 14:26:20:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:26:21:  ---  Got UAA admin token
+2016-05-10 14:26:21:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 14:39:00:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 14:39:07:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 14:39:08:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:39:14:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 14:39:14:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:39:21:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 14:39:21:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:39:21:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 14:39:28:  ---  Successfully deleted "test-app"
+2016-05-10 14:39:28:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 14:39:28:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 14:39:29:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 14:39:29:  ---  Successfully deleted "event-service-redis"
+2016-05-10 14:39:30:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 14:39:30:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 14:39:30:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 14:39:38:  ---  # quickstart.sh script started! #
+2016-05-10 14:39:43:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 14:39:45:  ---  Successfully logged into CloudFoundry
+2016-05-10 14:39:46:  ---  UAA Service instance successfully created!
+2016-05-10 14:40:00:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 14:40:03:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 14:40:04:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 14:40:04:  ---  UAA URL copied from enviromental variables!
+2016-05-10 14:40:05:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 14:40:06:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 14:40:07:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 14:40:08:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 14:40:08:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 14:40:09:  ---  Predix Asset Service instance successfully created!
+2016-05-10 14:40:10:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 14:40:11:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 14:40:11:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:40:12:  ---  Got UAA admin token
+2016-05-10 14:40:12:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 14:40:12:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 14:40:12:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:40:12:  ---  Got UAA admin token
+2016-05-10 14:40:13:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 14:40:15:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 14:40:15:  ---  assetURI copied from environment variables!
+2016-05-10 14:40:15:  ---  assetPostBody ok!
+2016-05-10 14:41:27:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 14:41:34:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 14:41:34:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:41:36:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 14:41:36:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:41:43:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 14:41:43:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:41:43:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 14:41:46:  ---  Successfully deleted "test-app"
+2016-05-10 14:41:48:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 14:41:49:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 14:41:50:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 14:41:50:  ---  Successfully deleted "event-service-redis"
+2016-05-10 14:41:51:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 14:41:51:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 14:41:51:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 14:43:07:  ---  # quickstart.sh script started! #
+2016-05-10 14:43:11:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 14:43:13:  ---  Successfully logged into CloudFoundry
+2016-05-10 14:43:14:  ---  UAA Service instance successfully created!
+2016-05-10 14:43:22:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 14:43:25:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 14:43:25:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 14:43:26:  ---  UAA URL copied from enviromental variables!
+2016-05-10 14:43:27:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 14:43:28:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 14:43:29:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 14:43:29:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 14:43:30:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 14:43:31:  ---  Predix Asset Service instance successfully created!
+2016-05-10 14:43:32:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 14:43:33:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 14:43:33:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:43:33:  ---  Got UAA admin token
+2016-05-10 14:43:33:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 14:43:34:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 14:43:34:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:43:34:  ---  Got UAA admin token
+2016-05-10 14:43:34:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 14:43:36:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 14:43:36:  ---  assetURI copied from environment variables!
+2016-05-10 14:43:36:  ---  assetPostBody ok!
+2016-05-10 14:50:46:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 14:50:53:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 14:50:53:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:51:00:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 14:51:00:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:53:18:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 14:53:18:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:53:18:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 14:53:24:  ---  Successfully deleted "test-app"
+2016-05-10 14:53:25:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 14:53:25:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 14:53:26:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 14:53:26:  ---  Successfully deleted "event-service-redis"
+2016-05-10 14:53:26:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 14:53:27:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 14:53:27:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 14:54:21:  ---  # quickstart.sh script started! #
+2016-05-10 14:54:24:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 14:54:26:  ---  Successfully logged into CloudFoundry
+2016-05-10 14:54:27:  ---  UAA Service instance successfully created!
+2016-05-10 14:54:36:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 14:54:39:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 14:54:40:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 14:54:40:  ---  UAA URL copied from enviromental variables!
+2016-05-10 14:54:42:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 14:54:43:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 14:54:43:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 14:54:44:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 14:54:44:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 14:54:45:  ---  Predix Asset Service instance successfully created!
+2016-05-10 14:54:46:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 14:54:47:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 14:54:47:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:54:47:  ---  Got UAA admin token
+2016-05-10 14:54:47:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 14:54:48:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 14:54:48:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 14:54:48:  ---  Got UAA admin token
+2016-05-10 14:54:48:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 14:54:50:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 14:54:51:  ---  assetURI copied from environment variables!
+2016-05-10 14:54:51:  ---  assetPostBody ok!
+2016-05-10 14:59:06:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 14:59:13:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 14:59:13:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:59:20:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 14:59:20:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:59:26:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 14:59:27:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 14:59:27:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 14:59:33:  ---  Successfully deleted "test-app"
+2016-05-10 14:59:33:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 14:59:34:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 14:59:34:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 14:59:35:  ---  Successfully deleted "event-service-redis"
+2016-05-10 14:59:35:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 14:59:35:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 14:59:36:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 14:59:38:  ---  # quickstart.sh script started! #
+2016-05-10 14:59:42:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 14:59:44:  ---  Successfully logged into CloudFoundry
+2016-05-10 14:59:45:  ---  UAA Service instance successfully created!
+2016-05-10 14:59:54:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 14:59:58:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 14:59:59:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 14:59:59:  ---  UAA URL copied from enviromental variables!
+2016-05-10 15:00:01:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 15:00:02:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 15:00:02:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 15:00:03:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 15:00:03:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 15:00:05:  ---  Predix Asset Service instance successfully created!
+2016-05-10 15:00:06:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 15:00:06:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 15:00:06:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 15:00:06:  ---  Got UAA admin token
+2016-05-10 15:00:07:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 15:00:08:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 15:00:08:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 15:00:08:  ---  Got UAA admin token
+2016-05-10 15:00:08:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 15:00:10:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 15:00:10:  ---  assetURI copied from environment variables!
+2016-05-10 15:00:11:  ---  assetPostBody ok!
+2016-05-10 15:34:46:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 15:34:48:  ---  Failed to delete. test-app might not exist
+2016-05-10 15:34:48:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 15:34:48:  ---  Failed to delete. test-app might not exist
+2016-05-10 15:34:49:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 15:34:49:  ---  Failed to delete. test-app might not exist
+2016-05-10 15:34:49:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 15:34:50:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 15:34:50:  ---  Successfully deleted "test-app"
+2016-05-10 15:34:50:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 15:34:51:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 15:34:51:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 15:34:52:  ---  Successfully deleted "event-service-redis"
+2016-05-10 15:34:52:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 15:34:52:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 15:34:52:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 15:34:56:  ---  # quickstart.sh script started! #
+2016-05-10 15:34:59:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 15:35:01:  ---  Successfully logged into CloudFoundry
+2016-05-10 15:35:02:  ---  UAA Service instance successfully created!
+2016-05-10 15:35:15:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 15:35:17:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 15:35:17:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 15:35:18:  ---  UAA URL copied from enviromental variables!
+2016-05-10 15:35:20:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 15:35:21:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 15:35:22:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 15:35:22:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 15:35:23:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 15:35:25:  ---  Predix Asset Service instance successfully created!
+2016-05-10 15:35:27:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 15:35:27:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 15:35:27:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 15:35:28:  ---  Got UAA admin token
+2016-05-10 15:35:28:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 15:35:28:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 15:35:28:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 15:35:29:  ---  Got UAA admin token
+2016-05-10 15:35:29:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 15:35:34:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 15:35:35:  ---  assetURI copied from environment variables!
+2016-05-10 15:35:35:  ---  assetPostBody ok!
+2016-05-10 16:01:07:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 16:01:14:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 16:01:15:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:01:21:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 16:01:22:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:01:29:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 16:01:29:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:01:29:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 16:01:36:  ---  Successfully deleted "test-app"
+2016-05-10 16:01:36:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 16:01:36:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 16:01:37:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 16:01:37:  ---  Successfully deleted "event-service-redis"
+2016-05-10 16:01:38:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 16:01:38:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 16:01:38:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 16:04:12:  ---  # quickstart.sh script started! #
+2016-05-10 16:04:16:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 16:04:17:  ---  Successfully logged into CloudFoundry
+2016-05-10 16:04:18:  ---  UAA Service instance successfully created!
+2016-05-10 16:04:26:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 16:04:27:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 16:04:28:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 16:04:28:  ---  UAA URL copied from enviromental variables!
+2016-05-10 16:04:29:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 16:04:30:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 16:04:31:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 16:04:31:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 16:04:31:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 16:04:33:  ---  Predix Asset Service instance successfully created!
+2016-05-10 16:04:34:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 16:04:35:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 16:04:35:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:04:35:  ---  Got UAA admin token
+2016-05-10 16:04:35:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 16:04:36:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 16:04:36:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:04:36:  ---  Got UAA admin token
+2016-05-10 16:04:36:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 16:04:41:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 16:04:42:  ---  assetURI copied from environment variables!
+2016-05-10 16:04:42:  ---  assetPostBody ok!
+2016-05-10 16:10:48:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 16:10:49:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 16:10:50:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:10:56:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 16:10:56:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:13:06 : --- Ctrl-C caught...exiting script
+2016-05-10 16:13:07:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 16:13:07:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 16:13:08:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:13:08:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 16:13:09:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:13:09:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 16:13:10:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:13:10:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 16:13:16:  ---  Successfully deleted "test-app"
+2016-05-10 16:13:16:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 16:13:17:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 16:13:17:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 16:13:17:  ---  Successfully deleted "event-service-redis"
+2016-05-10 16:13:18:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 16:13:18:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 16:13:18:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 16:13:25:  ---  # quickstart.sh script started! #
+2016-05-10 16:13:28:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 16:13:29:  ---  Successfully logged into CloudFoundry
+2016-05-10 16:13:31:  ---  UAA Service instance successfully created!
+2016-05-10 16:15:25:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 16:15:26:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 16:15:26:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 16:15:27:  ---  UAA URL copied from enviromental variables!
+2016-05-10 16:15:28:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 16:15:28:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 16:15:29:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 16:15:29:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 16:15:30:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 16:15:31:  ---  Predix Asset Service instance successfully created!
+2016-05-10 16:16:33:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 16:16:34:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 16:16:34:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:16:34:  ---  Got UAA admin token
+2016-05-10 16:16:34:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 16:16:35:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 16:16:35:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:16:35:  ---  Got UAA admin token
+2016-05-10 16:16:35:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 16:16:37:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 16:16:37:  ---  assetURI copied from environment variables!
+2016-05-10 16:16:38:  ---  assetPostBody ok!
+2016-05-10 16:19:55:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 16:19:57:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 16:19:57:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:20:04:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 16:20:04:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:20:11:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 16:20:11:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:20:11:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 16:20:17:  ---  Successfully deleted "test-app"
+2016-05-10 16:20:18:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 16:20:18:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 16:20:18:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 16:20:19:  ---  Successfully deleted "event-service-redis"
+2016-05-10 16:20:19:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 16:20:19:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 16:20:19:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 16:20:21:  ---  # quickstart.sh script started! #
+2016-05-10 16:20:24:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 16:20:26:  ---  Successfully logged into CloudFoundry
+2016-05-10 16:20:27:  ---  UAA Service instance successfully created!
+2016-05-10 16:20:35:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 16:20:36:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 16:20:36:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 16:20:37:  ---  UAA URL copied from enviromental variables!
+2016-05-10 16:20:38:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 16:20:39:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 16:20:40:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 16:20:40:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 16:20:41:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 16:20:42:  ---  Predix Asset Service instance successfully created!
+2016-05-10 16:20:43:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 16:20:43:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 16:20:43:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:20:44:  ---  Got UAA admin token
+2016-05-10 16:20:44:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 16:20:44:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 16:20:44:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:20:45:  ---  Got UAA admin token
+2016-05-10 16:20:45:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 16:20:49:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 16:20:50:  ---  assetURI copied from environment variables!
+2016-05-10 16:20:50:  ---  assetPostBody ok!
+2016-05-10 16:23:15:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 16:23:22:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 16:23:22:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:23:28:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 16:23:28:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:23:35:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 16:23:35:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:23:35:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 16:23:36:  ---  Successfully deleted "test-app"
+2016-05-10 16:23:37:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 16:23:37:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 16:23:38:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 16:23:38:  ---  Successfully deleted "event-service-redis"
+2016-05-10 16:23:38:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 16:23:39:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 16:23:39:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 16:23:41:  ---  # quickstart.sh script started! #
+2016-05-10 16:23:45:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 16:23:46:  ---  Successfully logged into CloudFoundry
+2016-05-10 16:23:47:  ---  UAA Service instance successfully created!
+2016-05-10 16:24:02:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 16:24:03:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 16:24:04:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 16:24:04:  ---  UAA URL copied from enviromental variables!
+2016-05-10 16:24:06:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 16:24:07:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 16:24:07:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 16:24:07:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 16:24:08:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 16:24:09:  ---  Predix Asset Service instance successfully created!
+2016-05-10 16:24:10:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 16:24:10:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 16:24:10:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:24:11:  ---  Got UAA admin token
+2016-05-10 16:24:11:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 16:24:11:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 16:24:11:  --- ERROR: Expected (1), Actual(4) arguments. "curl_helper_funcs:__addUaaUser" expected in order: UAA URI
+2016-05-10 16:26:51:  ---  ######## CLEAN UP IN PROGRESS ########
+2016-05-10 16:26:52:  ---  Successfully unbinded "event-service-redis" from "test-app"
+2016-05-10 16:26:53:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:26:59:  ---  Successfully unbinded "ie-traffic-service" from "test-app"
+2016-05-10 16:26:59:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:27:05:  ---  Successfully unbinded "ie-predix-uaa" from "test-app"
+2016-05-10 16:27:06:  ---  Failed to delete. predix-node-js-starter-anshulbakliwal might not exist
+2016-05-10 16:27:06:  ---  Successfully deleted "predix-node-js-starter-anshulbakliwal"
+2016-05-10 16:27:12:  ---  Successfully deleted "test-app"
+2016-05-10 16:27:12:  ---  Failed to delete "ie-predix-uaa". Retrying...
+2016-05-10 16:27:13:  ---  Successfully deleted "ie-predix-uaa"
+2016-05-10 16:27:13:  ---  Failed to delete "event-service-redis". Retrying...
+2016-05-10 16:27:13:  ---  Successfully deleted "event-service-redis"
+2016-05-10 16:27:14:  ---  Failed to delete "ie-traffic-service". Retrying...
+2016-05-10 16:27:14:  ---  Successfully deleted "ie-traffic-service"
+2016-05-10 16:27:14:  ---  ######## CLEAN UP COMPLETE ########
+2016-05-10 16:27:18:  ---  # quickstart.sh script started! #
+2016-05-10 16:27:21:  ---  Attempting to login user "anshul.bakliwal@ge.com" to host "api.system.aws-usw02-pr.ice.predix.io" Cloud Foundry. Space: "dev" Org: "anshul.bakliwal@ge.com"
+2016-05-10 16:27:22:  ---  Successfully logged into CloudFoundry
+2016-05-10 16:27:23:  ---  UAA Service instance successfully created!
+2016-05-10 16:27:32:  ---  Temp app successfully pushed to CloudFoundry!
+2016-05-10 16:27:33:  ---  UAA instance successfully binded to TEMP_APP!
+2016-05-10 16:27:33:  ---  trustedIssuerID copied from enviromental variables!
+2016-05-10 16:27:35:  ---  UAA URL copied from enviromental variables!
+2016-05-10 16:27:38:  ---  Predix TimeSeries Service instance successfully created!
+2016-05-10 16:27:39:  ---  Predix TimeSeries instance successfully binded to TEMP_APP!
+2016-05-10 16:27:39:  ---  TIMESERIES_ZONE_ID copied from enviromental variables!
+2016-05-10 16:27:40:  ---   TIMESERIES_INGEST_URI copied from enviromental variables!
+2016-05-10 16:27:40:  ---  TIMESERIES_QUERY_URI copied from enviromental variables!
+2016-05-10 16:27:41:  ---  Predix Asset Service instance successfully created!
+2016-05-10 16:27:42:  ---  Predix Asset instance successfully binded to test-app!
+2016-05-10 16:27:43:  ---  ASSET_ZONE_ID copied from environment variables!
+2016-05-10 16:27:43:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:27:43:  ---  Got UAA admin token
+2016-05-10 16:27:43:  ---  Making CURL GET request to create UAA Client ID "ui_client1"...
+2016-05-10 16:27:44:  ---  Successfully re-using existing Client ID: "ui_client1"
+2016-05-10 16:27:44:  ---  Making CURL GET request to get UAA Admin Token...
+2016-05-10 16:27:44:  ---  Got UAA admin token
+2016-05-10 16:27:44:  ---  Making CURL GET request to create UAA user "hacker1"...
+2016-05-10 16:27:47:  ---  Successfully re-using existing UAA User: "hacker1"
+2016-05-10 16:27:48:  ---  assetURI copied from environment variables!
+2016-05-10 16:27:48:  ---  assetPostBody ok!

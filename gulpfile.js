@@ -154,7 +154,7 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('dist/elements'));
 
   // Copies the base configurations from nginx configs
-  var nginx = gulp.src(['node_modules/px-nginx-configs/**/{*.conf,*.lua}', '!node_modules/px-nginx-configs/nginx.conf', '!node_modules/px-nginx-configs/user.lua'])
+  var nginx = gulp.src(['app/nginx/configs/**/{*.conf,*.lua}', '!app/nginx/configs/nginx.conf', '!app/nginx/configs/user.lua'])
     .pipe(gulp.dest('dist'));
 
   var nginxScripts = gulp.src('app/nginx/scripts/**/*')
@@ -254,8 +254,10 @@ gulp.task('clean', function (cb) {
 });
 
 function fakeRestServices(req, res, next) {
-  if (req.url.match(/\/services\/v1\/assets\/[^\/]+\/events(.*)/)) {
+  if (req.url.match(/\/services\/v1\/assets\/[^\/]+\/events(.*)TFEVT-D(.*)/)) {
     res.end(fs.readFileSync('app/elements/json-data/trafficdatanew.json'));
+  }if (req.url.match(/\/services\/v1\/assets\/[^\/]+\/events(.*)TFEVT(.*)/)) {
+    res.end(fs.readFileSync('app/elements/json-data/refreshlastvehicledata.json'));
   } else if (req.url.match(/\/services\/v1\/assets\/search(.*)bbox=32(.*)/)) {
     res.end(fs.readFileSync('app/elements/json-data/locationnew.json'));
   } else if (req.url.match(/\/services\/v1\/assets\/search(.*)bbox=41(.*)/)) {

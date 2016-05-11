@@ -382,7 +382,13 @@
           // related data, chartObj.vehicle will have vehcile section related data and chartObj.recent will have data
           // for Last vehicle section.
           var chartObj = this._getChartObj(eventsObj);
+
           this.chart = chartObj;
+
+          // Control comes here when all ajax calls received the response and UI processing is done, So at this point we will stop the spinner.
+          this._hideWrapper();
+
+          this._refreshLastVehicleData('hours');
 
           // Below code is to check if we have already 10 seconds vehicleAutoRefreshHandler running. If found, we will first clear the interval and
           // then start a new interval ajax call to get the recent vehicle data every 10 seconds.
@@ -393,8 +399,7 @@
           // start a 10 second interval to call the ajax for getting refresh last vehicle data.
           this.vehicleAutoRefreshHandler = setInterval(this._refreshLastVehicleData.bind(this), 10000);
 
-          // Control comes here when all ajax calls received the response and UI processing is done, So at this point we will stop the spinner.
-          this._hideWrapper();
+
         },
 
         /**
@@ -490,7 +495,7 @@
           chart.vehicleCount.unit = 'AVERAGE';
 
           // Below method call will update the recent data (last vehicle data) on chart object.
-          this._updateRecentDataInChartObj(eventsObj, chart);
+          //this._updateRecentDataInChartObj(eventsObj, chart);
 
           // Update the past string to be shown below the chart data.
           chart.pastString = this.pastString;
@@ -694,9 +699,13 @@
          * to have the xAxis Array length based on the date range selected. For eg:
          * if date range is 1 year then array length will be 12.
          */
-        _refreshLastVehicleData: function() {
+        _refreshLastVehicleData: function(duration) {
           var endTs = moment().valueOf();
           var startTs = moment(endTs).subtract(10, 'seconds').valueOf();
+          if(duration) {
+            startTs = moment(endTs).subtract(1, duration).valueOf();
+          }
+
           var selectedLocationBaseUrl = this.selectedLocation._links['search-events'].href;
           this.refreshLastVehicleDataApiUrl = this.baseUrl + this.getRelativeURL(this._getTrafficDataApiUrlUtil(selectedLocationBaseUrl));
           this.lastVehicleStartTime = startTs;

@@ -1,0 +1,5 @@
+{
+	"ImportPath": "github.build.ge.com/predix-data-services/time-series-acceptance-test/acceptance/fixtures/testapp",
+	"GoVersion": "go1.4.2",
+	"Deps": []
+}
