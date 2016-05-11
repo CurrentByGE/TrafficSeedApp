@@ -11,14 +11,81 @@ To take advantage of Traffic Seed App you need to:
 4. Add UAA Support.
 5. Deploy your code to Predix, Cloud Foundry.
 
+### Browser Support
+The traffic seed app is currently supported in Google Chrome 40.x.x and above.
+
 ### Get the code
 
 Get the code from the following git location:
 [Download](https://github.com/CurrentByGE/TrafficSeedApp)
 
-### Install dependencies
+Alternatively, use the git command as below:
+```
+git clone https://github.com/CurrentByGE/TrafficSeedApp.git
+```
 
-#### Quick-start (for experienced users)
+### Install dependencies
+1) Install CF CLI (Cloud Foundry Command Line Interface) from this website: https://github.com/cloudfoundry/cli.  
+- Go to the Downloads Section of the README on the GitHub and download the correct package or binary for your operating system.
+- Check that it is installed by typing `cf` on your command line.  
+
+2) Be sure that CURL is installed on your machine
+- Executing in your terminal `curl --version` should return a valid version number
+- For Windows, this needs to be done by installing Cygwin
+- Cywgin with Curl: http://stackoverflow.com/questions/3647569/how-do-i-install-curl-on-cygwin
+
+3) Be sure to set your environment proxy variables before trying to run the script.
+
+```
+export ALL_PROXY=http://<proxy-host>:<proxy-port>
+export HTTP_PROXY=$ALL_PROXY
+export HTTPS_PROXY=$ALL_PROXY
+export http_proxy=$ALL_PROXY
+export https_proxy=$ALL_PROXY
+```
+
+### Predix Platform and Cloud Foundry
+Traffic Seed App is using Predix Platform and Cloud Foundry to push the application to cloud. If you do not have account created in Predix, please click [here](https://www.predix.io/) to create one.
+
+For more information on using Predix platform and Cloud Foundry, check [this](https://predix-io.run.asv-pr.ice.predix.io/resources) website.
+
+### Login to Cloud Foundry
+Use the below command to login to Cloud Foundry:
+```
+cf login
+```
+
+It will prompt for the email and password. Give the email and password which you have used to create the predix account. It might ask you to select an org (if you have more than one org) then select the one showing your email. It will result as below:
+
+```
+cf login
+API endpoint: https://<api.system.aws-usw02-pr>.ice.predix.io
+
+Email> user.email@company.com # predix account email
+
+Password> ****** # predix account password
+Authenticating...
+OK
+
+Select an org (or press enter to skip):
+1. intelligent_environments
+2. user.email@company.com
+
+Org> 2
+Targeted org user.email@company.com
+
+Targeted space dev
+
+
+
+API endpoint:   https://<api.system.aws-usw02-pr>.ice.predix.io (API version: 2.51.0)   
+User:           user.email@company.com  
+Org:            user.email@company.com
+Space:          dev   
+
+```
+
+#### Quick-install (for experienced users)
 
 With Node.js installed, , run the following one liner from the root of your seed app download:
 
@@ -64,9 +131,6 @@ bower install
 
 This installs all the element sets and tools required to build and serve apps.
 
-### Browser Support
-The traffic seed app is currently supported in Google Chrome 40.x.x and above.
-
 ### Development workflow
 
 #### Serve / watch (Local Testing)
@@ -85,12 +149,45 @@ gulp
 
 Build and optimize the current project, ready for deployment. This includes linting as well as image, script, stylesheet and HTML optimization and minification.
 
-### Predix Platform and Cloud Foundry
-Traffic Seed App is using Predix Platform and Cloud Foundry to push the application to cloud. If you do not have account created in Predix, please click [here](https://www.predix.io/) to create one.
-
-For more information on using Predix platform and Cloud Foundry, check [this](https://predix-io.run.asv-pr.ice.predix.io/resources) website.
-
 ## Setup services for your own development
+You can setup services using below 2 ways:
+
+1) Auto Setup : It uses shell scripts commited in this repository. It will only set up the services used in traffic seed app.
+
+2) Manual : You will have to follow steps mentioned in 'Manual' section to create their own services. Useful when you want to use services other than ie-traffic service.
+### Auto Setup
+1) Go to `TrafficSeedApp/pre-settings/scripts/variables.sh`, and open this file in a text editor. This file contains environment variables that are used by the application for quick setup. Services and plans are set to the default values for the Predix VPC.
+
+Modify the following:
+
+- FRONT_END_APP_NAME="predix-node-js-starter-**yourname**"
+- CF_HOST="api.system.aws-usw02-pr.ice.predix.io"
+- CF_ORG="**your_org_name**"
+- CF_SPACE="**your_space**"
+- CF_USERNAME="**your_predixio_user_name**"
+
+See the comments in the file for more information.
+
+    1. By default, the Cloud Foundry Organization and the username is your email
+    2. By default, no proxy host:port is set
+    3. By default, the username used to login to the application is "hacker1"
+    4. By default, the password used to login to the application is "hacker1"
+
+2) Now you’re ready to run the scripts.
+**cd TrafficSeedApp/pre-settings**
+
+  - Run `./scripts/cleanup.sh` command . This script is responsible for deleting the applications and services if already present.
+  - Type `./quickstart.sh`. First you will be prompted for your Cloud Foundry password(if you are not already logged in to cloud foundry). After that the script will begin setting up the various micro services, hooking them together using the parameters set in the `variables.sh` file.
+
+3)	Upon completion, **cd TrafficSeedApp** and check if your manifest.yml has been modified to have the correct environment variables.
+
+4)	After the script is complete, run the command 'cf apps' to see the list of cloud foundry apps you have created. Within that list the app pushed by the script will have the name set in the variables.sh file.
+
+Congratulations! You have successfully created your first Predix Application! You are now a Predix Developer!
+
+### Manual
+If you have used the **Auto Setup** steps to set up services, **skip this section** and continue from 'Service Reference' section.
+
 1)	[Deploy Hello World App](https://www.predix.io/docs/?r=265150#IqAL3Fzb)
 
 2)	Subscribe to UAA and IE services via Predix Catalog
@@ -114,60 +211,37 @@ cf env <your_app_name>
 ```
 -	Enter the oauth-scope when generating the client token
 ```
-{"client_id":"traffic_test2","client_secret":"traffic2","scope":["uaa.none","openid", "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"],"authorized_grant_types":["authorization_code","client_credentials","refresh_token","password"],"authorities":["openid","uaa.none","uaa.resource", "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"],"autoapprove":["openid”]}
+{
+   "client_id": "traffic_test2",
+   "client_secret": "traffic2",
+   "scope": [
+      "uaa.none",
+      "openid",
+      "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"
+   ],
+   "authorized_grant_types": [
+      "authorization_code",
+      "client_credentials",
+      "refresh_token",
+      "password"
+   ],
+   "authorities": [
+      "openid",
+      "uaa.none",
+      "uaa.resource",
+      "ie-traffic.zones.334d60f8-2bdf-4b9b-a561-1b16a6f2df0e.user"
+   ],
+   "autoapprove": [
+      "openid"
+   ]
+}
 ```
 -	Now, you can start making Predix API calls using this token.
 
 5) You also need to create a user and associate the user to a group for login page in the [Predix Starter Kit](https://predix-starter.run.aws-usw02-pr.ice.predix.io/).
 
 
-### Service Reference
-Once the UAA and services setup is done, you will have to get the service reference to be used in manifest.yml.
-
-#### Quick Start with Intelligent Environment (Cities and Enterprise APIs)
-1)  Get List of Asset or Location using [HEOTAS](http://currentbyge.github.io/GE_Current_Documentation/#c_standards.html). For specific event-type or location-type, see [Get List of Asset](http://currentbyge.github.io/GE_Current_Documentation/#r_get_list_of_assets_api.html) and [Get List of Locations](http://currentbyge.github.io/GE_Current_Documentation/#r_get_list_of_locations_api.html), respectively.
-
-2)	Modify the [query string parameters](http://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_general_apis.html) for each tile.
-
-3) Notes:
--	For media (images, audio, and video), subscribe to the [ie-public-safety](https://www.predix.io/services/service.html?id=1767) tile in the [Predix Catalog](https://www.predix.io/catalog/).
--	Use the timestamp values in EPOCH format, which can be found [timestamp](http://currentmillis.com/). Please make sure that the EPOCH format time includes the milliseconds as well. Example of getting timestamp in JavaScript in this format is as below:
-```
-(new Date()).getTime();
-```
-Additional information can be found in Traffic Seed App where we are using moment.js for getting the timestamp in EPOCH format.
--	API Responses are in HTTP and not HTTPS. When making requests, please ensure you are using HTTPS.
-```
-{
-  "_links": {
-    "assets": {
-      "href": "http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/assets"
-    },
-    "locations": {
-      "href": "http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/locations"
-    }
-  }
-}
-```
-
-#### Which microservices are available on Cloud Foundry
-To get the details of available microservices from Cloud Foundry, follow the steps on [this](https://www.predix.io/docs/?r=250183#XpKGAdQ7-Q0CoIStl) link.
-
-#### How do I use GE Current Intelligent Environments Services and APIs
-For more information on usage of the Intelligent Environments Services and APIs, please visit the following urls:
-
-  1. [Intelligent Environments Overview](https://currentbyge.github.io/GE_Current_Documentation/#c_about_intelligent_environments.html)
-  2. [General APIs](https://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_general_apis.html)
-
-  3. [Intelligent Cities APIs](https://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_intelligent_cities_apis.html)
-
-### Redis
-Create a Redis instance, which is used by nginx for storing your session.
-```
-cf cs redis <plan> <instance_name>
-```
-
-### Update manifest.yml
+### Update manifest.yml (required only while doing Manual setup)
 You’ll need to change these fields in your manifest.yml file before pushing the application to the cloud. You can pull these field from VCAP_Services by using below command
 ```
 cf env <Your-App-Name>
@@ -226,7 +300,37 @@ You’ll also need to create a client_id in the Predix Starter Kit. See step 4 i
 }
   ```
 
-### Update nginx.conf
+
+### Service Reference
+Once the UAA and services setup is done, you will have to get the service reference to be used in manifest.yml.
+
+#### Quick Start with Intelligent Environment (Cities and Enterprise APIs)
+1)  Get List of Asset or Location using [HATEOAS](http://currentbyge.github.io/GE_Current_Documentation/#c_standards.html). For specific event-type or location-type, see [Get List of Asset](http://currentbyge.github.io/GE_Current_Documentation/#r_get_list_of_assets_api.html) and [Get List of Locations](http://currentbyge.github.io/GE_Current_Documentation/#r_get_list_of_locations_api.html), respectively.
+
+2)	Modify the [query string parameters](http://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_general_apis.html) for each tile.
+
+Notes:
+-	For media (images, audio, and video), subscribe to the [ie-public-safety](https://www.predix.io/services/service.html?id=1767) tile in the [Predix Catalog](https://www.predix.io/catalog/).
+-	Use the timestamp values in epoch format, which can be found [here](http://currentmillis.com/). Please make sure that the epoch format time includes the milliseconds as well. Example of getting timestamp in JavaScript in this format is as below:
+```
+(new Date()).getTime();
+```
+  Additional information can be found in Traffic Seed App where we are using moment.js for getting the timestamp in epoch format.
+-	API Responses are in HTTP and not HTTPS. When making requests, please ensure you are using HTTPS.
+```
+{
+  "_links": {
+    "assets": {
+      "href": "http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/assets"
+    },
+    "locations": {
+      "href": "http://ie-traffic.run.aws-usw02-pr.ice.predix.io/v1/locations"
+    }
+  }
+}
+```
+
+### Check nginx.conf
 You need to make sure that nginx.conf (in the root folder which gets copied into dist) has references to the RESOURCE_URL and PREDIX_ZONE_ID which is whatever you specified in 'Update manifest.yml' section.
 ```
 # for example,
@@ -284,6 +388,14 @@ In your case it will be
 https://<your-app-name>.run.aws-usw02-pr.ice.predix.io/login
 ```
 It will take you to the predix login page where you have to use the user id and password created from [UAA service](https://predix-io.run.asv-pr.ice.predix.io/docs/?b=#X9M7hYj6) step. Once you login, it will take you to Traffic Seed App page.
+
+#### How do I use GE Current Intelligent Environments Services and APIs
+For more information on usage of the Intelligent Environments Services and APIs, please visit the following urls:
+
+  1. [Intelligent Environments Overview](https://currentbyge.github.io/GE_Current_Documentation/#c_about_intelligent_environments.html)
+  2. [General APIs](https://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_general_apis.html)
+
+  3. [Intelligent Cities APIs](https://currentbyge.github.io/GE_Current_Documentation/#c_overview_of_intelligent_cities_apis.html)
 
 ## Application Theming & Styling
 

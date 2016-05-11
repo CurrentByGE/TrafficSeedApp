@@ -59,7 +59,7 @@ function __getUaaAdminToken
 #		Accepts 4 argument:
 #			string of UAA URI
 #     string of the TIMESERIES_ZONE_ID
-#     string of the ASSET_SERVICE_NAME
+#     string of the IE_SERVICE_NAME
 #     string of the ASSET_ZONE_ID
 #
 #	----------------------------------------------------------------
@@ -117,23 +117,27 @@ function __addUaaUser
     __append_new_line_log "Making CURL GET request to create UAA user \"$UAA_USER_NAME\"..." "$CURL_HELPER_LOG_PATH"
     responseCurl=`curl "$1/Users" -H "Pragma: no-cache" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Authorization: $adminUaaToken" --data-binary '{"userName":"'$UAA_USER_NAME'","password":"'$UAA_USER_PASSWORD'","emails":[{"value":"'$UAA_USER_EMAIL'"}]}'`
     echo "responseCurl: $responseCurl"
-    groupCurl1=`curl "$1/Groups?filter=displayName+eq+%22$3.zones.$4.user%22&startIndex=1" -H "Pragma: no-cache" -H "content-type: application/json" -H "Cache-Control: no-cache" -H "authorization: $adminUaaToken"`
-    echo "groupCurl1: $groupCurl1"
-    groupCurl2=`curl "$1/Users?attributes=id%2CuserName&filter=userName+eq+%22$UAA_USER_NAME%22&startIndex=1" -H "Pragma: no-cache" -H "content-type: application/json" -H "Cache-Control: no-cache" -H "authorization: $adminUaaToken"`
-    echo "groupCurl2: $groupCurl2"
-    groupId=$( __jsonval "$groupCurl1" "id" )
+    userId=$( __jsonval "$responseCurl" "id" )
+    echo "userId: $userId"
+
+    createGroup=`curl "$1/Groups" -H "Pragma: no-cache" -H "content-type: application/json" -H "Cache-Control: no-cache" -H "authorization: $adminUaaToken" --data-binary '{"displayName":"'$3.zones.$4.user'"}'`
+    groupId=$( __jsonval "$createGroup" "id" )
     echo "groupId: $groupId"
     groupId=$(echo "$groupId"|tr -d "]")
     echo "groupId after change: $groupId"
-    userId=$( __jsonval "$groupCurl2" "id" )
-    echo "userId: $userId"
+
+    addUserToGroup=`curl "$1/Groups/$groupId" -X PUT -H "Pragma: no-cache" -H "content-type: application/json" -H "Cache-Control: no-cache" -H "authorization: $adminUaaToken" -H 'if-match: *' --data-binary '{"id":"'$groupId'","displayName":"'$3.zones.$4.user'","members":["'$userId'"]}'`
+    echo "addUserToGroup: $addUserToGroup"
+
+
+
     #echo "'if-match: *' --data-binary '{\"id\":'$groupId','\"displayName\":'$3.zones.$4.user',\"members\":['$userId']}'"
-    groupCurl3=`curl "$1/Groups/$groupId" -X PUT -H "Pragma: no-cache" -H "content-type: application/json" -H "Cache-Control: no-cache" -H "authorization: $adminUaaToken" -H 'if-match: *' --data-binary '{"id":"'$groupId'","displayName":"'$3.zones.$4.user'","members":["'$userId'"]}'`
+    #groupCurl3=`curl "$1/Groups/$groupId" -X PUT -H "Pragma: no-cache" -H "content-type: application/json" -H "Cache-Control: no-cache" -H "authorization: $adminUaaToken" -H 'if-match: *' --data-binary '{"id":"'$groupId'","displayName":"'$3.zones.$4.user'","members":["'$userId'"]}'`
     #'{"meta":{"version":0,"created":"2016-05-10T19:06:10.261Z","lastModified":"2016-05-10T19:06:10.261Z"},"id":"30a00190-151e-4b3b-aab4-d47dbd97e83d","displayName":"ie-traffic.zones.51cce74b-8701-404e-91f1-703d5363c044.user","schemas":["urn:scim:schemas:core:1.0"],"members":["5a66cdd7-9ef1-4658-92f6-efacce108700"]}'
     #groupResponseCurl=`curl "$1/Groups" -H "Pragma: no-cache" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Authorization: $adminUaaToken" --data-binary '{"displayName":"'$3.zones.$4.user'"}'`
 
 
-    echo "groupCurl3: $groupCurl3"
+    #echo "groupCurl3: $groupCurl3"
 
     if [ ${#responseCurl} -lt 3 ]; then
       __error_exit "Failed to make request to create UAA User to \"$1\"" "$CURL_HELPER_LOG_PATH"

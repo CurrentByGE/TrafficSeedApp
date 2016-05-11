@@ -16,26 +16,26 @@ touch "$logDirectory/quickstartlog.log"
 # *****************************
 __append_new_line_log "######## CLEAN UP IN PROGRESS ########" "$logDirectory"
 
-if cf us $TEMP_APP $TIMESERIES_INSTANCE_NAME; then
-  __append_new_line_log "Successfully unbinded \"$TIMESERIES_INSTANCE_NAME\" from \"$TEMP_APP\"" "$logDirectory"
+if cf us $TEMP_APP $REDIS_INSTANCE_NAME; then
+  __append_new_line_log "Successfully unbinded \"$REDIS_INSTANCE_NAME\" from \"$TEMP_APP\"" "$logDirectory"
 else
   __append_new_line_log "Failed to delete. $TEMP_APP might not exist" "$logDirectory"
 fi
 
-if cf us $FRONT_END_APP_NAME $TIMESERIES_INSTANCE_NAME; then
-  __append_new_line_log "Successfully unbinded \"$TIMESERIES_INSTANCE_NAME\" from \"$FRONT_END_APP_NAME\"" "$logDirectory"
+if cf us $FRONT_END_APP_NAME $REDIS_INSTANCE_NAME; then
+  __append_new_line_log "Successfully unbinded \"$REDIS_INSTANCE_NAME\" from \"$FRONT_END_APP_NAME\"" "$logDirectory"
 else
   __append_new_line_log "Failed to delete. $FRONT_END_APP_NAME might not exist" "$logDirectory"
 fi
 
-if cf us $TEMP_APP $ASSET_INSTANCE_NAME; then
-  __append_new_line_log "Successfully unbinded \"$ASSET_INSTANCE_NAME\" from \"$TEMP_APP\"" "$logDirectory"
+if cf us $TEMP_APP $IE_INSTANCE_NAME; then
+  __append_new_line_log "Successfully unbinded \"$IE_INSTANCE_NAME\" from \"$TEMP_APP\"" "$logDirectory"
 else
   __append_new_line_log "Failed to delete. $TEMP_APP might not exist" "$logDirectory"
 fi
 
-if cf us $FRONT_END_APP_NAME $ASSET_INSTANCE_NAME; then
-  __append_new_line_log "Successfully unbinded \"$ASSET_INSTANCE_NAME\" from \"$FRONT_END_APP_NAME\"" "$logDirectory"
+if cf us $FRONT_END_APP_NAME $IE_INSTANCE_NAME; then
+  __append_new_line_log "Successfully unbinded \"$IE_INSTANCE_NAME\" from \"$FRONT_END_APP_NAME\"" "$logDirectory"
 else
   __append_new_line_log "Failed to delete. $FRONT_END_APP_NAME might not exist" "$logDirectory"
 fi
@@ -90,25 +90,25 @@ else
   fi
 fi
 
-if cf ds $TIMESERIES_INSTANCE_NAME -f; then
-  __append_new_line_log "Successfully deleted \"$TIMESERIES_INSTANCE_NAME\"" "$logDirectory"
+if cf ds $REDIS_INSTANCE_NAME -f; then
+  __append_new_line_log "Successfully deleted \"$REDIS_INSTANCE_NAME\"" "$logDirectory"
 else
-  __append_new_line_log "Failed to delete \"$TIMESERIES_INSTANCE_NAME\". Retrying..." "$logDirectory"
-  if cf d $TIMESERIES_INSTANCE_NAME -f -r; then
-    __append_new_line_log "Successfully deleted \"$TIMESERIES_INSTANCE_NAME\"" "$logDirectory"
+  __append_new_line_log "Failed to delete \"$REDIS_INSTANCE_NAME\". Retrying..." "$logDirectory"
+  if cf d $REDIS_INSTANCE_NAME -f -r; then
+    __append_new_line_log "Successfully deleted \"$REDIS_INSTANCE_NAME\"" "$logDirectory"
   else
-    __append_new_line_log "Failed to delete \"$TIMESERIES_INSTANCE_NAME\". Giving up." "$logDirectory"
+    __append_new_line_log "Failed to delete \"$REDIS_INSTANCE_NAME\". Giving up." "$logDirectory"
   fi
 fi
 
-if cf ds $ASSET_INSTANCE_NAME -f; then
-  __append_new_line_log "Successfully deleted \"$ASSET_INSTANCE_NAME\"" "$logDirectory"
+if cf ds $IE_INSTANCE_NAME -f; then
+  __append_new_line_log "Successfully deleted \"$IE_INSTANCE_NAME\"" "$logDirectory"
 else
-  __append_new_line_log "Failed to delete \"$ASSET_INSTANCE_NAME\". Retrying..." "$logDirectory"
-  if cf d $ASSET_INSTANCE_NAME -f -r; then
-    __append_new_line_log "Successfully deleted \"$ASSET_INSTANCE_NAME\"" "$logDirectory"
+  __append_new_line_log "Failed to delete \"$IE_INSTANCE_NAME\". Retrying..." "$logDirectory"
+  if cf d $IE_INSTANCE_NAME -f -r; then
+    __append_new_line_log "Successfully deleted \"$IE_INSTANCE_NAME\"" "$logDirectory"
   else
-    __append_new_line_log "Failed to delete \"$ASSET_INSTANCE_NAME\". Giving up." "$logDirectory"
+    __append_new_line_log "Failed to delete \"$IE_INSTANCE_NAME\". Giving up." "$logDirectory"
   fi
 fi
 

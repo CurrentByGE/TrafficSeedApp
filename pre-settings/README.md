@@ -31,8 +31,8 @@ export http_proxy=$ALL_PROXY
 export https_proxy=$ALL_PROXY
 ```
 
-5. Go to `/scripts/variables.sh`, and validate that you are able to git clone the repo found in the variable value `GIT_PREDIX_NODEJS_STARTER_URL`. 
-  1. Run `git clone {GIT_PREDIX_NODEJS_STARTER_URL}`
+5. Go to `/scripts/variables.sh`, and validate that you are able to git clone the repo found in the variable value ``. 
+  1. Run `git clone {}`
   2. If unsuccessful, then replace the value with the value that is commented out and attempt to clone using this new value
   3. If still unsuccessful, the issue might be a proxy issue. Attempt to set a git proxy setting by following the steps found here: http://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server
 

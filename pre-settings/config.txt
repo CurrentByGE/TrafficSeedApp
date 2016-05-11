@@ -1,15 +1,16 @@
 Predix Dev Bootstrap Configuration
 Authors SDLP v1 2015
-UAA URL: https://4a92423f-6643-4e2b-9b8e-45e4716b69aa.predix-uaa.run.aws-usw02-pr.ice.predix.io
+UAA URL: https://54052e6e-3f9b-4792-8421-acd65d443c62.predix-uaa.run.aws-usw02-pr.ice.predix.io
 UAA Admin Client ID: admin
 UAA Admin Client Secret: adminpassword
+client secret base 64 encoded: dWlfY2xpZW50MTp1aV9jbGllbnQx
 UAA Generic Client ID: ui_client1
 UAA Generic Client Secret: ui_client1
-TimeSeries Ingest URL:  https://4a92423f-6643-4e2b-9b8e-45e4716b69aa.predix-uaa.run.aws-usw02-pr.ice.predix.io
-TimeSeries Query URL:  https://4a92423f-6643-4e2b-9b8e-45e4716b69aa.predix-uaa.run.aws-usw02-pr.ice.predix.io
-TimeSeries ZoneID: 
-Asset URL:  https://ie-traffic.run.aws-usw02-pr.ice.predix.io
-Asset Zone ID: 51cce74b-8701-404e-91f1-703d5363c044
+Redis Ingest URL:  https://54052e6e-3f9b-4792-8421-acd65d443c62.predix-uaa.run.aws-usw02-pr.ice.predix.io
+Redis Query URL:  https://54052e6e-3f9b-4792-8421-acd65d443c62.predix-uaa.run.aws-usw02-pr.ice.predix.io
+Redis ZoneID: 
+IE URL:  https://ie-traffic.run.aws-usw02-pr.ice.predix.io
+IE Zone ID: 0f35f965-2e64-4ea0-825b-72a324c0e4d4
 Front end App Name URL: https://
 You can execute 'cf env predix-node-js-starter-anshulbakliwal' to view all this information
 

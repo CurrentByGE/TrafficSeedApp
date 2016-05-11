@@ -57,58 +57,32 @@ UAA_CLIENTID_GENERIC="ui_client1"
 # The generic client ID password
 UAA_CLIENTID_GENERIC_SECRET="ui_client1"
 
-############# Predix Asset Configurations #############
-
-# Name of the "Asset" that is recorded to Predix Asset
-ASSET_TYPE="/asset/mydevice1"
-
-# Name of the tag (Asset name ex: Wind Turbine) you want to ingest to timeseries with. NO SPACES
-ASSET_TAG="mydevice1.temperature"
-
-#Description of the Machine that is recorded to Predix Asset
-ASSET_DESCRIPTION="My Device"
-
 ###############################
 # Optional configurations
 ###############################
 
-# GITHUB repo to pull predix-nodejs-starter
-GIT_PREDIX_NODEJS_STARTER_URL="https://github.com/PredixDev/predix-nodejs-starter.git"
 
 # Name for the temp_app application used for binding and retrieving VCAP environment variable information
 TEMP_APP="test-app"
 
-
 ############# Predix TimeSeries Configurations ##############
 
 #The name of the TimeSeries service you are binding to - default already set
-TIMESERIES_SERVICE_NAME="redis-1"
+REDIS_SERVICE_NAME="redis-1"
 
 #Name of the TimeSeries plan (eg: Free) - default already set
-TIMESERIES_SERVICE_PLAN="shared-vm"
+REDIS_SERVICE_PLAN="shared-vm"
 
 #Name of your TimeSeries instance - default already set
-TIMESERIES_INSTANCE_NAME="event-service-redis"
+REDIS_INSTANCE_NAME="event-service-redis"
 
 ############# Predix Asset Configurations ##############
 
 #The name of the Asset service you are binding to - default already set
-ASSET_SERVICE_NAME="ie-traffic"
+IE_SERVICE_NAME="ie-traffic"
 
 #Name of the Asset plan (eg: Free) - default already set
-ASSET_SERVICE_PLAN="Beta"
+IE_SERVICE_PLAN="Beta"
 
 #Name of your Asset instance - default already set
-ASSET_INSTANCE_NAME="ie-traffic-service"
-
-#Target Device to transfer the Predix Machine, e.g. edison, raspberrypi, etc
-TARGETDEVICE="edison"
-
-#Target Device IP, at command line on device, use ifconfig to get ip adress
-TARGETDEVICEIP="192.168.1.229"
-
-#Target Device User
-TARGETDEVICEUSER="root"
-
-#Predix Machine Home Dir
-PREDIXMACHINEHOME=PredixMachine
+IE_INSTANCE_NAME="ie-traffic-service"

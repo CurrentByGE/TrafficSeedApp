@@ -1,7 +1,6 @@
-name: ic-seed-app-sim
-memory: 64M
+name: test-app
+memory: 1G
 stack: cflinuxfs2
-# buildpack: staticfile_buildpack
 buildpack: predix_openresty_buildpack
 path: dist
 services:
@@ -9,13 +8,9 @@ services:
     - event-service-redis
     - ie-traffic-service
 env:
-    UAA_CLIENT_CREDENTIALS: "dWlfY2xpZW50OnVpX2NsaWVudA=="
-    RESOURCE_URL: https://ie-traffic.run.aws-usw02-pr.ice.predix.io #VCAP_SERVICES
-    UAA_URI: https://b234e9eb-d6ff-4987-a55c-73b126b6a30d.predix-uaa.run.aws-usw02-pr.ice.predix.io #VCAP_SERVICES
-    UAA_CLIENT_ID: ui_client
-    PREDIX_ZONE_ID: f7d7a2c7-3dd1-45b3-b1dd-9d76d046a177 #VCAP_SERVICES
+    UAA_CLIENT_ID: #CLIENTID # ui_client1
+    UAA_CLIENT_CREDENTIALS: #CLIENTSECRET  # base 64 ecoded client_id:client_secret
+    UAA_URI: #UAAURI #Don't remove the # UAAURI comment as it will be replace with original value from VCAP_SERVICES using sh scripts
+    RESOURCE_URL: #RESOURCEURL #Don't remove the # RESOURCEURL comment as it will be replace with original value from VCAP_SERVICES using sh scripts
+    PREDIX_ZONE_ID: #PREDIXZONEID #Don't remove the # PREDIXZONEID comment as it will be replace with original value from VCAP_SERVICES using sh scripts
     # CUSTOM_URL: seedapp.geintelligentcities.com
-# env:
-#       CLIENT_AUTH_KEY: "aWVzX2RldjpQQDU1dzByZA=="
-#       RESOURCE_URL: https://ie-traffic-dev.run.aws-usw02-pr.ice.predix.io
-#       TOKEN_URL: https://a816af26-4abd-4495-94c0-cf7e402a51fe.predix-uaa.run.aws-usw02-pr.ice.predix.io
